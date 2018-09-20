@@ -67,9 +67,16 @@ namespace ONE_PATH
             }
             catch (Exception exception)
             {
-               CreatePath("xxx", EnvironmentInfo.UserPath);
+                try
+                {
+                    CreatePath("xxx", EnvironmentInfo.UserPath);
+                }
+                catch (Exception e1)
+                {
+                    Console.WriteLine(e1);
+                    throw;
+                }
             }
-           
         }
 
         #endregion
