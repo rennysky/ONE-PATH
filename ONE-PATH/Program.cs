@@ -22,7 +22,7 @@ namespace ONE_PATH
             //创建Windows用户主题
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainPath());//无需判断（方式一
+            Application.Run(new MainPath());//无需判断（方式一）
 
             #region 判断管理员登录
 

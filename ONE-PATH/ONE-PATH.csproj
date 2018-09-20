@@ -69,9 +69,10 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utility\Enum.cs" />
+    <Compile Include="Utility\Environmenthelper.cs" />
     <Compile Include="Utility\HttpProc.cs" />
     <Compile Include="Utility\JsonObj.cs" />
-    <Compile Include="Utility\Model\PathModel.cs" />
+    <Compile Include="Utility\Model\EnvironmentModel.cs" />
     <Compile Include="Utility\WebAPI.cs" />
     <EmbeddedResource Include="MainPath.resx">
       <DependentUpon>MainPath.cs</DependentUpon>

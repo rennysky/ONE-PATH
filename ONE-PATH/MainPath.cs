@@ -8,6 +8,7 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows.Forms;
+using ONE_PATH.Utility;
 
 namespace ONE_PATH
 {
@@ -42,7 +43,8 @@ namespace ONE_PATH
 
         private void button1_Click(object sender, EventArgs e)
         {
-            SetPath(textBox1.Text);
+            //SetPath(textBox1.Text);
+            new Environmenthelper().GetEnvironmentPath();
         }
     }
 }
