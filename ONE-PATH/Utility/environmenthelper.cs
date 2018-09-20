@@ -16,9 +16,10 @@ namespace ONE_PATH.Utility
             {
                 Dictionary<string, object> list = result.GetList();
                 Dictionary<string, object> Data = (Dictionary<string, object>)list["data"];
-                model.Auth = Data["Auth"].ToString();
-                model.PATH = Data["PATH"].ToString();
-                model.MainPkgPath = Data["MainPkgPath"].ToString();
+                model.SystemPath = Data["SystemPath"].ToString();
+                model.UserPath = Data["UserPath"].ToString();
+                model.OtherTitle = Data["OtherTitle"].ToString();
+                model.OtherValue = Data["OtherValue"].ToString();
             }
         }
     }

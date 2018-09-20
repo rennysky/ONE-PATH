@@ -42,6 +42,7 @@ namespace ONE_PATH.Utility
             catch (Exception)
             {
             }
+
             return array;
         }
 
@@ -56,9 +57,8 @@ namespace ONE_PATH.Utility
                 JavaScriptSerializer jss = new JavaScriptSerializer();
                 jss.MaxJsonLength = 1024 * 1024 * 10;
                 list = jss.Deserialize<Dictionary<string, object>>(json);
-
             }
-            catch (Exception ex)
+            catch (Exception e)
             {
                 list = new Dictionary<string, object>();
             }
@@ -78,6 +78,7 @@ namespace ONE_PATH.Utility
             {
                 return list[key].ToString();
             }
+
             return "";
         }
 
@@ -88,7 +89,7 @@ namespace ONE_PATH.Utility
         {
             if (list.ContainsKey(key))
             {
-                return new JsonObj((Dictionary<string, object>)list[key]);
+                return new JsonObj((Dictionary<string, object>) list[key]);
             }
             else if (key.Contains('.'))
             {
@@ -99,8 +100,10 @@ namespace ONE_PATH.Utility
                 {
                     o = o.GetSon(keys[i]);
                 }
+
                 return o.GetSon(keys[keys.Length - 1]);
             }
+
             return null;
         }
 
@@ -128,8 +131,10 @@ namespace ONE_PATH.Utility
                 {
                     o = o.GetSon(keys[i]);
                 }
+
                 return o.GetArrayList(keys[keys.Length - 1]);
             }
+
             return null;
         }
 
@@ -160,8 +165,10 @@ namespace ONE_PATH.Utility
                 {
                     o = o.GetSon(keys[i]);
                 }
+
                 return o.GetList(keys[keys.Length - 1]);
             }
+
             return null;
         }
 
@@ -175,7 +182,8 @@ namespace ONE_PATH.Utility
         {
             try
             {
-                System.Runtime.Serialization.Json.DataContractJsonSerializer serializer = new System.Runtime.Serialization.Json.DataContractJsonSerializer(data.GetType());
+                System.Runtime.Serialization.Json.DataContractJsonSerializer serializer =
+                    new System.Runtime.Serialization.Json.DataContractJsonSerializer(data.GetType());
                 using (MemoryStream ms = new MemoryStream())
                 {
                     serializer.WriteObject(ms, data);
@@ -198,7 +206,8 @@ namespace ONE_PATH.Utility
         {
             try
             {
-                System.Runtime.Serialization.Json.DataContractJsonSerializer serializer = new System.Runtime.Serialization.Json.DataContractJsonSerializer(t);
+                System.Runtime.Serialization.Json.DataContractJsonSerializer serializer =
+                    new System.Runtime.Serialization.Json.DataContractJsonSerializer(t);
                 using (MemoryStream ms = new MemoryStream(Encoding.UTF8.GetBytes(json)))
                 {
                     return serializer.ReadObject(ms);

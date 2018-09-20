@@ -192,7 +192,7 @@ namespace ONE_PATH.Utility
                 string result = GetClient(timeOut, IsUseJsonHeader).OpenRead(url);
                 return result;
             }
-            catch (System.Exception ex)
+            catch (System.Exception e)
             {
                 return "";
             }
