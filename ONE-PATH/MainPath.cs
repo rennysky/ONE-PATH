@@ -18,10 +18,9 @@ namespace ONE_PATH
         public MainPath()
         {
             InitializeComponent();
-
-            
         }
 
+        #region 写入环境变量
 
         public void SetPath(string pathValue)
         {
@@ -41,11 +40,19 @@ namespace ONE_PATH
                     EnvironmentVariableTarget.Machine);
             }
         }
+
+        #endregion
+
+        #region 获取所需配置变量
+
         public EnvironmentModel EnvironmentInfo { get; set; }
+
         private void B_StartSetEnv_Click(object sender, EventArgs e)
         {
             //SetPath(textBox1.Text);
             EnvironmentInfo = EnvironmentHelper.GetEnvironmentPath();
         }
+
+        #endregion
     }
 }
