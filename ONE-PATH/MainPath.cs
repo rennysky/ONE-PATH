@@ -73,8 +73,7 @@ namespace ONE_PATH
                 }
                 catch (Exception e1)
                 {
-                    Console.WriteLine(e1);
-                    throw;
+                    MessageBox.Show(e1.Message);
                 }
             }
         }
