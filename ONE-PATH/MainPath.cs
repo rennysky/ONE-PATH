@@ -57,7 +57,7 @@ namespace ONE_PATH
 
         public EnvironmentModel EnvironmentInfo { get; set; }
 
-        private void B_StartSetEnv_Click(object sender, EventArgs e)
+        private void SetEnvironment()
         {
             //SetPath(textBox1.Text);
             EnvironmentInfo = EnvironmentHelper.GetEnvironmentPath();
@@ -80,5 +80,10 @@ namespace ONE_PATH
         }
 
         #endregion
+
+        private void B_StartSetEnv_Click(object sender, EventArgs e)
+        {
+            SetEnvironment();
+        }
     }
 }
