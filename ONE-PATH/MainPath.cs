@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.Web.Script;
 using System.Windows.Forms;
 using ONE_PATH.Utility;
 using ONE_PATH.Utility.Model;
@@ -22,10 +23,10 @@ namespace ONE_PATH
 
         #region 写入环境变量
 
-        public void SetPath(string pathValue)
+        public void SetPath(string PathName, string pathValue)
         {
             string pathlist;
-            pathlist = Environment.GetEnvironmentVariable("PATH", EnvironmentVariableTarget.Machine);
+            pathlist = Environment.GetEnvironmentVariable(PathName, EnvironmentVariableTarget.Machine);
             string[] list = pathlist.Split(';');
             bool isPathExist = false;
             foreach (string item in list)
@@ -36,9 +37,18 @@ namespace ONE_PATH
 
             if (!isPathExist)
             {
-                Environment.SetEnvironmentVariable("PATH", pathlist + ";" + pathValue,
+                Environment.SetEnvironmentVariable(PathName, pathlist + ";" + pathValue,
                     EnvironmentVariableTarget.Machine);
             }
+        }
+
+        #endregion
+
+        #region 创建新环境变量
+
+        public void CreatePath(string PathName, string pathValue)
+        {
+            Environment.SetEnvironmentVariable(PathName, pathValue, EnvironmentVariableTarget.Machine);
         }
 
         #endregion
@@ -51,6 +61,15 @@ namespace ONE_PATH
         {
             //SetPath(textBox1.Text);
             EnvironmentInfo = EnvironmentHelper.GetEnvironmentPath();
+            try
+            {
+                SetPath("xxx", EnvironmentInfo.UserPath);
+            }
+            catch (Exception exception)
+            {
+               CreatePath("xxx", EnvironmentInfo.UserPath);
+            }
+           
         }
 
         #endregion
