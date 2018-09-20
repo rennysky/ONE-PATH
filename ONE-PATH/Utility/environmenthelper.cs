@@ -6,9 +6,9 @@ using ONE_PATH.Utility.Model;
 
 namespace ONE_PATH.Utility
 {
-    class Environmenthelper
+    class EnvironmentHelper
     {
-        public void GetEnvironmentPath()
+        public static EnvironmentModel GetEnvironmentPath()
         {
             EnvironmentModel model = new EnvironmentModel();
             JsonObj result = WebAPI.Get("http://api.ieasn.com/?service=App.GetPath.Cmder");
@@ -21,6 +21,8 @@ namespace ONE_PATH.Utility
                 model.OtherTitle = Data["OtherTitle"].ToString();
                 model.OtherValue = Data["OtherValue"].ToString();
             }
+
+            return model;
         }
     }
 }

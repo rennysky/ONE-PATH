@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.B_StartSetEnv = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // textBox1
@@ -39,22 +39,22 @@
             this.textBox1.Size = new System.Drawing.Size(100, 21);
             this.textBox1.TabIndex = 0;
             // 
-            // button1
+            // B_StartSetEnv
             // 
-            this.button1.Location = new System.Drawing.Point(394, 71);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.B_StartSetEnv.Location = new System.Drawing.Point(394, 71);
+            this.B_StartSetEnv.Name = "B_StartSetEnv";
+            this.B_StartSetEnv.Size = new System.Drawing.Size(75, 23);
+            this.B_StartSetEnv.TabIndex = 1;
+            this.B_StartSetEnv.Text = "开始";
+            this.B_StartSetEnv.UseVisualStyleBackColor = true;
+            this.B_StartSetEnv.Click += new System.EventHandler(this.B_StartSetEnv_Click);
             // 
             // MainPath
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.B_StartSetEnv);
             this.Controls.Add(this.textBox1);
             this.Name = "MainPath";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -67,7 +67,7 @@
         #endregion
 
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button B_StartSetEnv;
     }
 }
 

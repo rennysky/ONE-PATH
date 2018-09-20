@@ -9,6 +9,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows.Forms;
 using ONE_PATH.Utility;
+using ONE_PATH.Utility.Model;
 
 namespace ONE_PATH
 {
@@ -40,11 +41,11 @@ namespace ONE_PATH
                     EnvironmentVariableTarget.Machine);
             }
         }
-
-        private void button1_Click(object sender, EventArgs e)
+        public EnvironmentModel EnvironmentInfo { get; set; }
+        private void B_StartSetEnv_Click(object sender, EventArgs e)
         {
             //SetPath(textBox1.Text);
-            new Environmenthelper().GetEnvironmentPath();
+            EnvironmentInfo = EnvironmentHelper.GetEnvironmentPath();
         }
     }
 }
