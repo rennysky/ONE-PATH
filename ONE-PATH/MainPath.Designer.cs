@@ -1,6 +1,6 @@
 ﻿namespace ONE_PATH
 {
-    partial class Form1
+    partial class MainPath
     {
         /// <summary>
         /// 必需的设计器变量。
@@ -28,10 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // MainPath
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form1";
+            this.Name = "MainPath";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "OnePath 系统环境一键配置";
+            this.ResumeLayout(false);
+
         }
 
         #endregion
