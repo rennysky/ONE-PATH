@@ -21,7 +21,6 @@ namespace ONE_PATH.Utility
                 model.OtherTitle = Data["OtherTitle"].ToString();
                 model.OtherValue = Data["OtherValue"].ToString();
             }
-
             return model;
         }
     }
