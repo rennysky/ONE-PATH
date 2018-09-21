@@ -23,11 +23,16 @@ namespace ONE_PATH.Utility.Model
         /// <summary>
         /// 其他环境变量
         /// </summary>
-        public string OtherTitle;
+        public string OtherKey;
 
         /// <summary>
         /// 其他环境变量值
         /// </summary>
         public string OtherValue;
+
+        /// <summary>
+        /// 其他环境变量是否为系统
+        /// </summary>
+        public string isOhterMaster;
     }
 }

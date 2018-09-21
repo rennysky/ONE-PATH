@@ -28,16 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.MyPathBox = new System.Windows.Forms.TextBox();
             this.B_StartSetEnv = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // textBox1
+            // MyPathBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(276, 73);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 21);
-            this.textBox1.TabIndex = 0;
+            this.MyPathBox.Location = new System.Drawing.Point(276, 73);
+            this.MyPathBox.Name = "MyPathBox";
+            this.MyPathBox.Size = new System.Drawing.Size(100, 21);
+            this.MyPathBox.TabIndex = 0;
             // 
             // B_StartSetEnv
             // 
@@ -55,7 +55,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.B_StartSetEnv);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.MyPathBox);
+            this.MaximizeBox = false;
             this.Name = "MainPath";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "OnePath 系统环境一键配置";
@@ -66,7 +67,7 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox MyPathBox;
         private System.Windows.Forms.Button B_StartSetEnv;
     }
 }

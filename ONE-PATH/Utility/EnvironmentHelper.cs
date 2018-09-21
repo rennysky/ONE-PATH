@@ -18,8 +18,9 @@ namespace ONE_PATH.Utility
                 Dictionary<string, object> Data = (Dictionary<string, object>)list["data"];
                 model.SystemPath = Data["SystemPath"].ToString();
                 model.UserPath = Data["UserPath"].ToString();
-                model.OtherTitle = Data["OtherTitle"].ToString();
+                model.OtherKey = Data["OtherKey"].ToString();
                 model.OtherValue = Data["OtherValue"].ToString();
+                model.isOhterMaster = Data["isOhterMaster"].ToString();
             }
             return model;
         }
