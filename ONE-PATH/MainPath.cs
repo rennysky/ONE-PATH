@@ -19,7 +19,6 @@ namespace ONE_PATH
         public MainPath()
         {
             InitializeComponent();
-          
         }
 
         #region 写入环境变量
@@ -58,11 +57,11 @@ namespace ONE_PATH
 
         public EnvironmentModel EnvironmentInfo { get; set; }
 
-        private void SetEnvironment(string EnvKey,string EnvValue)
+        private void SetEnvironment(string EnvKey, string EnvValue)
         {
             //SetPath(textBox1.Text);
-        
-           
+
+
             EnvironmentInfo = EnvironmentHelper.GetEnvironmentPath();
             try
             {
@@ -85,10 +84,12 @@ namespace ONE_PATH
 
         private void B_StartSetEnv_Click(object sender, EventArgs e)
         {
-            string[][] ary = new string[3][];
+     
             try
             {
-                
+                SetEnvironment("PATH",EnvironmentInfo.SystemPath);
+                //SetEnvironment("PATH", EnvironmentInfo.UserPath);
+                SetEnvironment(EnvironmentInfo.OtherKey, EnvironmentInfo.OtherValue);
             }
             catch (Exception exception)
             {

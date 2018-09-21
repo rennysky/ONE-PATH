@@ -33,6 +33,6 @@ namespace ONE_PATH.Utility.Model
         /// <summary>
         /// 其他环境变量是否为系统
         /// </summary>
-        public string isOhterMaster;
+        public string IsMachine;
     }
 }
