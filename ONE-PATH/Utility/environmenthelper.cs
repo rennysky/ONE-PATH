@@ -20,7 +20,7 @@ namespace ONE_PATH.Utility
                 model.UserPath = Data["UserPath"].ToString();
                 model.OtherKey = Data["OtherKey"].ToString();
                 model.OtherValue = Data["OtherValue"].ToString();
-                model.isOhterMaster = Data["isOhterMaster"].ToString();
+                model.IsMachine = Data["IsMachine"].ToString();
             }
             return model;
         }
