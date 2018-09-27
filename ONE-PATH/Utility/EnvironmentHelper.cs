@@ -33,18 +33,26 @@ namespace ONE_PATH.Utility
             if (result.Get("ret") == "200")
             {
                 Dictionary<string, object> dic = result.GetList();
-                Dictionary<string, object> data = dic["data"] as Dictionary<string, object>;
-                ArrayList ProdArrayList = data as ArrayList;
-                if (ProdArrayList.Count > 0) //判断所在是否存在
+                // Dictionary<string, object> Data = dic["data"] as Dictionary<string, object>;
+                ArrayList ProdArrayList = dic["data"] as ArrayList ;
+                if (ProdArrayList.Count > 0) //判断所在是否存在产品
                 {
                     for (int i = 0; i < ProdArrayList.Count; i++)
                     {
+                       
                         Dictionary<string, object> dic_listprods = ProdArrayList[i] as Dictionary<string, object>;
                         SoftInfo SoftInfo = new SoftInfo();
-                        SoftInfo.SoftName = RueiConvert.ToString(dic_listprods["SoftName"]);
-                        SoftInfo.SoftApi = RueiConvert.ToString(dic_listprods["SoftApi"]);
+                        //SoftInfo.SoftName = RueiConvert.ToString(Data["SoftName"]);
+                        //SoftInfo.SoftApi = RueiConvert.ToString(Data["SoftApi"]);
+
+                        //TreeNode TreeListProds = new TreeNode();
+                        //TreeListProds.Text = prodinfo.ProdName; //节点
+                        //TreeListProds.Name = prodinfo.ProdID;
+                        //ListProds.Nodes.Add(TreeListProds);
                     }
                 }
+                
+                
             }
         }
     }
