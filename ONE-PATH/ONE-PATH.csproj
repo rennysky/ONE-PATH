@@ -60,6 +60,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="API\Win32Api.cs" />
     <Compile Include="MainPath.cs">
       <SubType>Form</SubType>
     </Compile>

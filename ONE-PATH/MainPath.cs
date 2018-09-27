@@ -19,6 +19,8 @@ namespace ONE_PATH
         public MainPath()
         {
             InitializeComponent();
+            
+
         }
 
         #region 写入环境变量
@@ -52,6 +54,7 @@ namespace ONE_PATH
             {
                 pathValue = MyPathBox.Text;
             }
+
             Environment.SetEnvironmentVariable(PathName, pathValue, EnvironmentVariableTarget.Machine);
         }
 
@@ -60,7 +63,7 @@ namespace ONE_PATH
         #region 获取并配置所需环境变量
 
         public EnvironmentModel EnvironmentInfo { get; set; }
-        
+
         private void SetEnvironment(string EnvKey, string EnvValue)
         {
             //SetPath(textBox1.Text);
@@ -69,11 +72,12 @@ namespace ONE_PATH
             {
                 EnvValue = MyPathBox.Text;
             }
+
             try
             {
                 SetPath(EnvKey, EnvValue);
             }
-            catch (Exception exception)//若没有相应文档，部或错误，尝试创建
+            catch (Exception exception) //若没有相应文档，部或错误，尝试创建
             {
                 try
                 {
@@ -109,12 +113,37 @@ namespace ONE_PATH
 
         private void B_StartSetEnv_Click(object sender, EventArgs e)
         {
-            SetEnvMethod();
+            if (MyPathBox.Text != "")
+            {
+                SetEnvMethod();
+            }
+            else
+            {
+                MessageBox.Show("请输入相应程序地址");
+            }
         }
 
         private void B_Exit_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+
+
+        #region 无边框窗体移动
+
+        public const int WM_NCLBUTTONDOWN = 0xA1;
+        public const int HT_CAPTION = 0x2;
+
+        private void panel1_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                Win32API.ReleaseCapture();
+
+                Win32API.SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+            }
+        }
+
+        #endregion
     }
 }
