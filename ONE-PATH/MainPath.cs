@@ -57,7 +57,7 @@ namespace ONE_PATH
 
         #endregion
 
-        #region 获取所需配置变量
+        #region 获取并配置所需环境变量
 
         public EnvironmentModel EnvironmentInfo { get; set; }
         
@@ -73,7 +73,7 @@ namespace ONE_PATH
             {
                 SetPath(EnvKey, EnvValue);
             }
-            catch (Exception exception)
+            catch (Exception exception)//若没有相应文档，部或错误，尝试创建
             {
                 try
                 {
@@ -88,20 +88,28 @@ namespace ONE_PATH
 
         #endregion
 
-        private void B_StartSetEnv_Click(object sender, EventArgs e)
+        #region 执行环境变量方法
+
+        private void SetEnvMethod()
         {
             EnvironmentInfo = EnvironmentHelper.GetEnvironmentPath();
             try
             {
-                SetEnvironment("PATH",EnvironmentInfo.SystemPath);
+                SetEnvironment("PATH", EnvironmentInfo.SystemPath);
                 //SetEnvironment("PATH", EnvironmentInfo.UserPath);
                 SetEnvironment(EnvironmentInfo.OtherKey, EnvironmentInfo.OtherValue);
             }
             catch (Exception exception)
             {
-                Console.WriteLine(exception);
-                throw;
+                MessageBox.Show(exception.Message);
             }
+        }
+
+        #endregion
+
+        private void B_StartSetEnv_Click(object sender, EventArgs e)
+        {
+            SetEnvMethod();
         }
     }
 }
