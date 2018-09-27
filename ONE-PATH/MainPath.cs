@@ -48,6 +48,10 @@ namespace ONE_PATH
 
         public void CreatePath(string PathName, string pathValue)
         {
+            if (pathValue == "soft_path")
+            {
+                pathValue = MyPathBox.Text;
+            }
             Environment.SetEnvironmentVariable(PathName, pathValue, EnvironmentVariableTarget.Machine);
         }
 
@@ -56,13 +60,15 @@ namespace ONE_PATH
         #region 获取所需配置变量
 
         public EnvironmentModel EnvironmentInfo { get; set; }
-
+        
         private void SetEnvironment(string EnvKey, string EnvValue)
         {
             //SetPath(textBox1.Text);
 
-
-            EnvironmentInfo = EnvironmentHelper.GetEnvironmentPath();
+            if (EnvValue == "soft_path")
+            {
+                EnvValue = MyPathBox.Text;
+            }
             try
             {
                 SetPath(EnvKey, EnvValue);
@@ -84,7 +90,7 @@ namespace ONE_PATH
 
         private void B_StartSetEnv_Click(object sender, EventArgs e)
         {
-     
+            EnvironmentInfo = EnvironmentHelper.GetEnvironmentPath();
             try
             {
                 SetEnvironment("PATH",EnvironmentInfo.SystemPath);
