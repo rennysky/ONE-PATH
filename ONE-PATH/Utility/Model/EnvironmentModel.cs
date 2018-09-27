@@ -35,4 +35,22 @@ namespace ONE_PATH.Utility.Model
         /// </summary>
         public string IsMachine;
     }
+
+
+    /// <summary>
+    /// 产品 
+    /// </summary>
+    public class SoftInfo
+    {
+        /// <summary>
+        /// 产品名称
+        /// </summary>
+
+        public string SoftName { get; set; }
+
+        /// <summary>
+        /// 具体api
+        /// </summary>
+        public string SoftApi { set; get; }
+    }
 }

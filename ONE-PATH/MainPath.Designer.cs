@@ -33,6 +33,7 @@
             this.B_Exit = new System.Windows.Forms.Button();
             this.Label_Path = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.EnvCombSelect = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -84,6 +85,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.EnvCombSelect);
             this.panel1.Controls.Add(this.MyPathBox);
             this.panel1.Controls.Add(this.Label_Path);
             this.panel1.Controls.Add(this.B_StartSetEnv);
@@ -93,6 +95,15 @@
             this.panel1.Size = new System.Drawing.Size(351, 87);
             this.panel1.TabIndex = 4;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
+            // 
+            // EnvCombSelect
+            // 
+            this.EnvCombSelect.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.EnvCombSelect.FormattingEnabled = true;
+            this.EnvCombSelect.Location = new System.Drawing.Point(88, 43);
+            this.EnvCombSelect.Name = "EnvCombSelect";
+            this.EnvCombSelect.Size = new System.Drawing.Size(117, 28);
+            this.EnvCombSelect.TabIndex = 4;
             // 
             // MainPath
             // 
@@ -119,6 +130,7 @@
         private System.Windows.Forms.Button B_Exit;
         private System.Windows.Forms.Label Label_Path;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.ComboBox EnvCombSelect;
     }
 }
 

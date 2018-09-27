@@ -74,6 +74,7 @@
     <Compile Include="Utility\HttpProc.cs" />
     <Compile Include="Utility\JsonObj.cs" />
     <Compile Include="Utility\Model\EnvironmentModel.cs" />
+    <Compile Include="Utility\RueiConvert.cs" />
     <Compile Include="Utility\WebAPI.cs" />
     <EmbeddedResource Include="MainPath.resx">
       <DependentUpon>MainPath.cs</DependentUpon>
