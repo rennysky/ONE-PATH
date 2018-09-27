@@ -111,5 +111,10 @@ namespace ONE_PATH
         {
             SetEnvMethod();
         }
+
+        private void B_Exit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
