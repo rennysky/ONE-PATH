@@ -38,6 +38,7 @@
             this.Label_SoftName = new System.Windows.Forms.Label();
             this.EnvCombSelect = new System.Windows.Forms.ComboBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.linkLabel_DownUrl = new System.Windows.Forms.LinkLabel();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -89,6 +90,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.linkLabel_DownUrl);
             this.panel1.Controls.Add(this.Label_SoftVersion);
             this.panel1.Controls.Add(this.Label_SoftName);
             this.panel1.Controls.Add(this.EnvCombSelect);
@@ -109,7 +111,7 @@
             this.Label_SoftVersion.Location = new System.Drawing.Point(3, 192);
             this.Label_SoftVersion.Name = "Label_SoftVersion";
             this.Label_SoftVersion.Size = new System.Drawing.Size(88, 17);
-            this.Label_SoftVersion.TabIndex = 6;
+            this.Label_SoftVersion.TabIndex = 8;
             this.Label_SoftVersion.Text = "获取版本中……";
             // 
             // Label_SoftName
@@ -136,6 +138,20 @@
             this.timer1.Enabled = true;
             this.timer1.Interval = 2000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // linkLabel_DownUrl
+            // 
+            this.linkLabel_DownUrl.ActiveLinkColor = System.Drawing.SystemColors.Highlight;
+            this.linkLabel_DownUrl.AutoSize = true;
+            this.linkLabel_DownUrl.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.linkLabel_DownUrl.LinkColor = System.Drawing.Color.Black;
+            this.linkLabel_DownUrl.Location = new System.Drawing.Point(241, 192);
+            this.linkLabel_DownUrl.Name = "linkLabel_DownUrl";
+            this.linkLabel_DownUrl.Size = new System.Drawing.Size(116, 17);
+            this.linkLabel_DownUrl.TabIndex = 10;
+            this.linkLabel_DownUrl.TabStop = true;
+            this.linkLabel_DownUrl.Text = "点击此处下载最新版";
+            this.linkLabel_DownUrl.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel_DownUrl_LinkClicked);
             // 
             // MainPath
             // 
@@ -166,6 +182,7 @@
         private System.Windows.Forms.Label Label_SoftName;
         private System.Windows.Forms.Label Label_SoftVersion;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.LinkLabel linkLabel_DownUrl;
     }
 }
 

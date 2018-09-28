@@ -165,7 +165,10 @@ namespace ONE_PATH
 
         public SoftVerInfoModel SoftVerInfo { get; set; }
 
-        private void CheckVersion()
+        /// <summary>
+        /// 检测版本
+        /// </summary>
+        public void CheckVersion()
         {
             SoftVerInfo = EnvironmentHelper.CheckLatestVersion();
             string LocalFileVersion = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
@@ -175,9 +178,50 @@ namespace ONE_PATH
             Label_SoftVersion.Text = "本地版本:" + LocalProductVersion + "最新版本:" + SoftVerInfo.ProductVersion;
             if (LocalProductVersion != SoftVerInfo.ProductVersion)
             {
-                MessageBox.Show("当前不是最新版本"+"\r\n"+"为获取良好体验建议您更新为最新版本", "OnePath版本提示:", MessageBoxButtons.OK,
+                MessageBox.Show("当前不是最新版本" + "\r\n" + "为获取良好体验建议您更新为最新版本", "OnePath版本提示:", MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
             }
+        }
+
+        /// <summary>
+        /// 定时检测
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            timer1.Enabled = false;
+            CheckVersion();
+        }
+
+        /// <summary>
+        /// 是否正常打开下载链接
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void linkLabel_DownUrl_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            try
+            {
+                VisitLink();
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show("无法正常打开下载地址！" + "\r\n" + "请在浏览器里手动打开" + "\r\n" + SoftVerInfo.DownUrl);
+            }
+        }
+
+        /// <summary>
+        /// 打开下载链接
+        /// </summary>
+        private void VisitLink()
+        {
+            // Change the color of the link text by setting LinkVisited   
+            // to true.  
+            linkLabel_DownUrl.LinkVisited = true;
+            //Call the Process.Start method to open the default browser
+            ////with a URL:  
+            System.Diagnostics.Process.Start(SoftVerInfo.DownUrl);
         }
 
         #endregion
@@ -191,11 +235,5 @@ namespace ONE_PATH
         }
 
         #endregion
-
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            timer1.Enabled = false;
-            CheckVersion();
-        }
     }
 }
