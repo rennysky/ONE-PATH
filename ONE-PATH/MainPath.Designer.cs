@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainPath));
             this.MyPathBox = new System.Windows.Forms.TextBox();
             this.B_StartSetEnv = new System.Windows.Forms.Button();
             this.B_Exit = new System.Windows.Forms.Button();
@@ -177,6 +178,7 @@
             this.ClientSize = new System.Drawing.Size(430, 220);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "MainPath";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
