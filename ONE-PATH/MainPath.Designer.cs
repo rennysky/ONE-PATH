@@ -34,11 +34,12 @@
             this.B_Exit = new System.Windows.Forms.Button();
             this.Label_Path = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.linkLabel_AboutMe = new System.Windows.Forms.LinkLabel();
+            this.linkLabel_DownUrl = new System.Windows.Forms.LinkLabel();
             this.Label_SoftVersion = new System.Windows.Forms.Label();
             this.Label_SoftName = new System.Windows.Forms.Label();
             this.EnvCombSelect = new System.Windows.Forms.ComboBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.linkLabel_DownUrl = new System.Windows.Forms.LinkLabel();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -90,6 +91,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.linkLabel_AboutMe);
             this.panel1.Controls.Add(this.linkLabel_DownUrl);
             this.panel1.Controls.Add(this.Label_SoftVersion);
             this.panel1.Controls.Add(this.Label_SoftName);
@@ -103,6 +105,34 @@
             this.panel1.Size = new System.Drawing.Size(425, 217);
             this.panel1.TabIndex = 1;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
+            // 
+            // linkLabel_AboutMe
+            // 
+            this.linkLabel_AboutMe.ActiveLinkColor = System.Drawing.SystemColors.Highlight;
+            this.linkLabel_AboutMe.AutoSize = true;
+            this.linkLabel_AboutMe.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.linkLabel_AboutMe.LinkColor = System.Drawing.Color.Black;
+            this.linkLabel_AboutMe.Location = new System.Drawing.Point(360, 192);
+            this.linkLabel_AboutMe.Name = "linkLabel_AboutMe";
+            this.linkLabel_AboutMe.Size = new System.Drawing.Size(62, 17);
+            this.linkLabel_AboutMe.TabIndex = 11;
+            this.linkLabel_AboutMe.TabStop = true;
+            this.linkLabel_AboutMe.Text = "@RENNY";
+            this.linkLabel_AboutMe.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel_AboutMe_LinkClicked);
+            // 
+            // linkLabel_DownUrl
+            // 
+            this.linkLabel_DownUrl.ActiveLinkColor = System.Drawing.SystemColors.Highlight;
+            this.linkLabel_DownUrl.AutoSize = true;
+            this.linkLabel_DownUrl.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.linkLabel_DownUrl.LinkColor = System.Drawing.Color.Black;
+            this.linkLabel_DownUrl.Location = new System.Drawing.Point(241, 192);
+            this.linkLabel_DownUrl.Name = "linkLabel_DownUrl";
+            this.linkLabel_DownUrl.Size = new System.Drawing.Size(116, 17);
+            this.linkLabel_DownUrl.TabIndex = 10;
+            this.linkLabel_DownUrl.TabStop = true;
+            this.linkLabel_DownUrl.Text = "点击此处下载最新版";
+            this.linkLabel_DownUrl.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel_DownUrl_LinkClicked);
             // 
             // Label_SoftVersion
             // 
@@ -139,20 +169,6 @@
             this.timer1.Interval = 2000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // linkLabel_DownUrl
-            // 
-            this.linkLabel_DownUrl.ActiveLinkColor = System.Drawing.SystemColors.Highlight;
-            this.linkLabel_DownUrl.AutoSize = true;
-            this.linkLabel_DownUrl.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.linkLabel_DownUrl.LinkColor = System.Drawing.Color.Black;
-            this.linkLabel_DownUrl.Location = new System.Drawing.Point(241, 192);
-            this.linkLabel_DownUrl.Name = "linkLabel_DownUrl";
-            this.linkLabel_DownUrl.Size = new System.Drawing.Size(116, 17);
-            this.linkLabel_DownUrl.TabIndex = 10;
-            this.linkLabel_DownUrl.TabStop = true;
-            this.linkLabel_DownUrl.Text = "点击此处下载最新版";
-            this.linkLabel_DownUrl.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel_DownUrl_LinkClicked);
-            // 
             // MainPath
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -183,6 +199,7 @@
         private System.Windows.Forms.Label Label_SoftVersion;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.LinkLabel linkLabel_DownUrl;
+        private System.Windows.Forms.LinkLabel linkLabel_AboutMe;
     }
 }
 

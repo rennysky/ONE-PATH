@@ -77,7 +77,7 @@ namespace ONE_PATH
             {
                 SetPath(EnvKey, EnvValue);
             }
-            catch (Exception exception) //若没有相应文档，部或错误，尝试创建
+            catch (Exception e) //若没有相应文档，部或错误，尝试创建
             {
                 try
                 {
@@ -235,5 +235,10 @@ namespace ONE_PATH
         }
 
         #endregion
+
+        private void linkLabel_AboutMe_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("http://uno.moe");
+        }
     }
 }
