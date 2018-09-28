@@ -34,7 +34,7 @@
             this.Label_Path = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.EnvCombSelect = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.Label_SoftName = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -78,15 +78,15 @@
             // 
             this.Label_Path.AutoSize = true;
             this.Label_Path.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Label_Path.Location = new System.Drawing.Point(3, 9);
+            this.Label_Path.Location = new System.Drawing.Point(14, 9);
             this.Label_Path.Name = "Label_Path";
-            this.Label_Path.Size = new System.Drawing.Size(79, 20);
+            this.Label_Path.Size = new System.Drawing.Size(68, 20);
             this.Label_Path.TabIndex = 3;
-            this.Label_Path.Text = "程序路径：";
+            this.Label_Path.Text = "程序路径:";
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.Label_SoftName);
             this.panel1.Controls.Add(this.EnvCombSelect);
             this.panel1.Controls.Add(this.MyPathBox);
             this.panel1.Controls.Add(this.Label_Path);
@@ -104,18 +104,18 @@
             this.EnvCombSelect.FormattingEnabled = true;
             this.EnvCombSelect.Location = new System.Drawing.Point(88, 43);
             this.EnvCombSelect.Name = "EnvCombSelect";
-            this.EnvCombSelect.Size = new System.Drawing.Size(117, 28);
+            this.EnvCombSelect.Size = new System.Drawing.Size(108, 28);
             this.EnvCombSelect.TabIndex = 4;
             // 
-            // button1
+            // Label_SoftName
             // 
-            this.button1.Location = new System.Drawing.Point(9, 43);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.Label_SoftName.AutoSize = true;
+            this.Label_SoftName.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Label_SoftName.Location = new System.Drawing.Point(14, 45);
+            this.Label_SoftName.Name = "Label_SoftName";
+            this.Label_SoftName.Size = new System.Drawing.Size(68, 20);
+            this.Label_SoftName.TabIndex = 5;
+            this.Label_SoftName.Text = "软件名称:";
             // 
             // MainPath
             // 
@@ -143,7 +143,7 @@
         private System.Windows.Forms.Label Label_Path;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ComboBox EnvCombSelect;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label Label_SoftName;
     }
 }
 
