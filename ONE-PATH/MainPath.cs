@@ -161,22 +161,41 @@ namespace ONE_PATH
 
         #endregion
 
-        private void button1_Click(object sender, EventArgs e)
+        #region 检查版本更新
+
+        public SoftVerInfoModel SoftVerInfo { get; set; }
+
+        private void CheckVersion()
         {
+            SoftVerInfo = EnvironmentHelper.CheckLatestVersion();
+            string LocalFileVersion = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
+            string LocalProductVersion = Application.ProductVersion.ToString();
+
+
+            Label_SoftVersion.Text = "本地版本:" + LocalProductVersion + "最新版本:" + SoftVerInfo.ProductVersion;
+            if (LocalProductVersion != SoftVerInfo.ProductVersion)
+            {
+                MessageBox.Show("当前不是最新版本"+"\r\n"+"为获取良好体验建议您更新为最新版本", "OnePath版本提示:", MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+            }
         }
 
+        #endregion
 
         #region 启动注册事件
 
         private void RegisterEvents()
         {
-            EnvironmentHelper.CheckSoftVer();
-            string aa=System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
-            string bb=Application.ProductVersion.ToString()  ;
             EnvironmentHelper.GetEnvironmentPathList();
             EnvCombSelect.DataSource = EnvironmentHelper.SoftList;
         }
 
         #endregion
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            timer1.Enabled = false;
+            CheckVersion();
+        }
     }
 }

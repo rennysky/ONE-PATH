@@ -44,6 +44,7 @@ namespace ONE_PATH.Utility.Model
 
     public class SoftInfo
     {
+        [JsonIgnore]
         /// <summary>
         /// 产品名称
         /// </summary>
@@ -60,7 +61,7 @@ namespace ONE_PATH.Utility.Model
 
     #region 最新软件版本信息
 
-    public class SoftVerInfo
+    public class SoftVerInfoModel
     {
         /// <summary>
         /// 软件版本
@@ -69,7 +70,7 @@ namespace ONE_PATH.Utility.Model
         public string FileVersion { get; set; }
 
         /// <summary>
-        /// 软件版本
+        /// 程序集版本
         /// </summary>
 
         public string ProductVersion { get; set; }

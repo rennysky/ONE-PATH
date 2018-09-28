@@ -58,9 +58,9 @@ namespace ONE_PATH.Utility
 
         #region 检查软件版本更新
 
-        public static SoftVerInfo CheckSoftVer()
+        public static SoftVerInfoModel CheckLatestVersion()
         {
-            SoftVerInfo softVerInfo = new SoftVerInfo();
+            SoftVerInfoModel softVerInfo = new SoftVerInfoModel();
             JsonObj result = WebAPI.Get("http://api.ieasn.com/?service=App.GetSoftEnv.GetSoftVer");
             if (result.Get("ret") == "200")
             {
