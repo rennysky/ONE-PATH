@@ -109,6 +109,10 @@ namespace ONE_PATH
             {
                 MessageBox.Show(exception.Message);
             }
+            finally
+            {
+                MessageBox.Show("环境搭建完成！请检验！");
+            }
         }
 
         #endregion
