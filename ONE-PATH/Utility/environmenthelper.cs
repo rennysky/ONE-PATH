@@ -71,9 +71,8 @@ namespace ONE_PATH.Utility
                 softVerInfo.ProductVersion = Data["ProductVersion"].ToString();
                 softVerInfo.FileVersion = Data["FileVersion"].ToString();
             }
+
             return softVerInfo;
-      
-             
         }
 
         #endregion
