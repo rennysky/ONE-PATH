@@ -9,10 +9,10 @@ namespace ONE_PATH.Utility
 {
     class EnvironmentHelper
     {
-        public static EnvironmentModel GetEnvironmentPath()
+        public static EnvironmentModel GetEnvironmentPath(string SoftName)
         {
             EnvironmentModel model = new EnvironmentModel();
-            JsonObj result = WebAPI.Get("http://api.ieasn.com/?service=App.GetPath.Cmder");
+            JsonObj result = WebAPI.Get("http://api.ieasn.com/?service=App.GetPath."+SoftName);
             if (result.Get("ret") == "200")
             {
                 Dictionary<string, object> list = result.GetList();
@@ -27,32 +27,23 @@ namespace ONE_PATH.Utility
             return model;
         }
 
+        public static ArrayList SoftList = new ArrayList();
+
         public static void GetEnvironmentPathList()
         {
             JsonObj result = WebAPI.Get("http://api.ieasn.com/?service=App.GetSoftEnv.GetPathList");
             if (result.Get("ret") == "200")
             {
-                Dictionary<string, object> dic_1 = result.GetList();
-              //  Dictionary<string, object> data = dic_1["Data"] as Dictionary<string, object>;
-                ArrayList ProdArrayList = dic_1["data"] as ArrayList;
-                //if (ProdArrayList.Length > 0) //判断所在是否存在产品
-                //{
-                //    for (int i = 0; i < ProdArrayList.Length; i++)
-                //    {
-                       
-                //        Dictionary<string, object> dic_listprods = ProdArrayList[i] as Dictionary<string, object>;
-                //        SoftInfo SoftInfo = new SoftInfo();
-                //        //SoftInfo.SoftName = RueiConvert.ToString(Data["SoftName"]);
-                //        //SoftInfo.SoftApi = RueiConvert.ToString(Data["SoftApi"]);
+                Dictionary<string, object> dic = result.GetList();
+                Dictionary<string, object> data = dic["data"] as Dictionary<string, object>;
 
-                //        //TreeNode TreeListProds = new TreeNode();
-                //        //TreeListProds.Text = prodinfo.ProdName; //节点
-                //        //TreeListProds.Name = prodinfo.ProdID;
-                //        //ListProds.Nodes.Add(TreeListProds);
-                //    }
-                //}
-                
-                
+                if (data.Count > 0)
+                {
+                    foreach (var KeyList in data.Keys)
+                    {
+                        SoftList.Add(KeyList);
+                    }
+                }
             }
         }
     }

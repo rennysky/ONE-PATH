@@ -19,8 +19,8 @@ namespace ONE_PATH
         public MainPath()
         {
             InitializeComponent();
-            
 
+            RegisterEvents();
         }
 
         #region 写入环境变量
@@ -96,9 +96,11 @@ namespace ONE_PATH
 
         private void SetEnvMethod()
         {
-            EnvironmentInfo = EnvironmentHelper.GetEnvironmentPath();
             try
             {
+                EnvironmentInfo =
+                    EnvironmentHelper.GetEnvironmentPath(EnvCombSelect.SelectedValue.ToString()); //选用combo的选中值
+
                 SetEnvironment("PATH", EnvironmentInfo.SystemPath);
                 //SetEnvironment("PATH", EnvironmentInfo.UserPath);
                 SetEnvironment(EnvironmentInfo.OtherKey, EnvironmentInfo.OtherValue);
@@ -111,6 +113,13 @@ namespace ONE_PATH
 
         #endregion
 
+        #region 控件操作
+
+        /// <summary>
+        /// 执行一键注入注册表
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void B_StartSetEnv_Click(object sender, EventArgs e)
         {
             if (MyPathBox.Text != "")
@@ -123,11 +132,17 @@ namespace ONE_PATH
             }
         }
 
+        /// <summary>
+        /// 退出程序
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void B_Exit_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        #endregion
 
         #region 无边框窗体移动
 
@@ -148,7 +163,17 @@ namespace ONE_PATH
 
         private void button1_Click(object sender, EventArgs e)
         {
-            EnvironmentHelper.GetEnvironmentPathList();
         }
+
+
+        #region 启动注册事件
+
+        private void RegisterEvents()
+        {
+            EnvironmentHelper.GetEnvironmentPathList();
+            EnvCombSelect.DataSource = EnvironmentHelper.SoftList;
+        }
+
+        #endregion
     }
 }

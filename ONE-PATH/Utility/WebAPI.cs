@@ -214,7 +214,7 @@ namespace ONE_PATH.Utility
                 }
             }
             webClient.TimeOut = timeOut;
-            webClient.MdAuthHead = "bearer " + ValidateHead;
+            webClient.RueiAuthHead = "bearer " + ValidateHead;
             webClient.AddAuthorizationHeader();
             webClient.Encoding = Encoding.UTF8;
 

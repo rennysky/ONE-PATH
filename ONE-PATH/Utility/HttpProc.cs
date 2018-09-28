@@ -132,11 +132,11 @@ namespace ONE_PATH.Utility
             /// </summary>
             public void AddAuthorizationHeader()
             {
-                if (!string.IsNullOrWhiteSpace(MdAuthHead))
+                if (!string.IsNullOrWhiteSpace(RueiAuthHead))
                 {
-                    requestHeaders.Add("Authorization", MdAuthHead);
-                    //requestHeaders.Add(HttpRequestHeader.Authorization, MdAuthHead);
-                    //File.AppendAllText("D:\\log.txt", MdAuthHead);
+                    requestHeaders.Add("Authorization", RueiAuthHead);
+                    //requestHeaders.Add(HttpRequestHeader.Authorization, RueiAuthHead);
+                    //File.AppendAllText("D:\\log.txt", RueiAuthHead);
                 }
             }
             /// <summary>
@@ -164,9 +164,9 @@ namespace ONE_PATH.Utility
             }
 
             /// <summary>
-            /// 迈迪授权验证头
+            /// 授权验证头
             /// </summary>
-            public string MdAuthHead
+            public string RueiAuthHead
             {
                 get;
                 set;
@@ -900,7 +900,7 @@ namespace ONE_PATH.Utility
 
                 if (responseHeaders.GetValues("Content-Disposition") != null)
                 {
-                    //attachment; filename=mx.mdprt
+                    //attachment; filename 
                     string header = responseHeaders.GetValues("Content-Disposition")[0];
                     if (header.Contains("="))
                     {
