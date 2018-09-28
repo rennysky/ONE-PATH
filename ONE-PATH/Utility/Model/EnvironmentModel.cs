@@ -7,6 +7,8 @@ using System.Text;
 
 namespace ONE_PATH.Utility.Model
 {
+    #region 系统环境目录信息
+
     public class EnvironmentModel
     {
         [JsonIgnore]
@@ -36,10 +38,10 @@ namespace ONE_PATH.Utility.Model
         public string IsMachine;
     }
 
+    #endregion
 
-    /// <summary>
-    /// 产品 
-    /// </summary>
+    #region 软件信息
+
     public class SoftInfo
     {
         /// <summary>
@@ -52,5 +54,36 @@ namespace ONE_PATH.Utility.Model
         /// 具体api
         /// </summary>
         public string SoftApi { set; get; }
+    }
+
+    #endregion
+
+    #region 最新软件版本信息
+
+    public class SoftVerInfo
+    {
+        /// <summary>
+        /// 软件版本
+        /// </summary>
+
+        public string FileVersion { get; set; }
+
+        /// <summary>
+        /// 软件版本
+        /// </summary>
+
+        public string ProductVersion { get; set; }
+
+        /// <summary>
+        /// 是否需要强制升级
+        /// </summary>
+        public string IsNow { set; get; }
+
+        /// <summary>
+        /// 软件下载链接
+        /// </summary>
+        public string DownUrl { set; get; }
+
+        #endregion
     }
 }

@@ -3,16 +3,19 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Windows.Forms;
 using ONE_PATH.Utility.Model;
 
 namespace ONE_PATH.Utility
 {
     class EnvironmentHelper
     {
+        #region 获取相应环境变量配置
+
         public static EnvironmentModel GetEnvironmentPath(string SoftName)
         {
             EnvironmentModel model = new EnvironmentModel();
-            JsonObj result = WebAPI.Get("http://api.ieasn.com/?service=App.GetPath."+SoftName);
+            JsonObj result = WebAPI.Get("http://api.ieasn.com/?service=App.GetPath." + SoftName);
             if (result.Get("ret") == "200")
             {
                 Dictionary<string, object> list = result.GetList();
@@ -26,6 +29,10 @@ namespace ONE_PATH.Utility
 
             return model;
         }
+
+        #endregion
+
+        #region 获取云端所有软件列表
 
         public static ArrayList SoftList = new ArrayList();
 
@@ -46,5 +53,29 @@ namespace ONE_PATH.Utility
                 }
             }
         }
+
+        #endregion
+
+        #region 检查软件版本更新
+
+        public static SoftVerInfo CheckSoftVer()
+        {
+            SoftVerInfo softVerInfo = new SoftVerInfo();
+            JsonObj result = WebAPI.Get("http://api.ieasn.com/?service=App.GetSoftEnv.GetSoftVer");
+            if (result.Get("ret") == "200")
+            {
+                Dictionary<string, object> list = result.GetList();
+                Dictionary<string, object> Data = (Dictionary<string, object>) list["data"];
+                softVerInfo.DownUrl = Data["DownUrl"].ToString();
+                softVerInfo.IsNow = Data["IsNow"].ToString();
+                softVerInfo.ProductVersion = Data["ProductVersion"].ToString();
+                softVerInfo.FileVersion = Data["FileVersion"].ToString();
+            }
+            return softVerInfo;
+      
+             
+        }
+
+        #endregion
     }
 }

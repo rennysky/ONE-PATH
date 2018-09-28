@@ -170,6 +170,9 @@ namespace ONE_PATH
 
         private void RegisterEvents()
         {
+            EnvironmentHelper.CheckSoftVer();
+            string aa=System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
+            string bb=Application.ProductVersion.ToString()  ;
             EnvironmentHelper.GetEnvironmentPathList();
             EnvCombSelect.DataSource = EnvironmentHelper.SoftList;
         }
