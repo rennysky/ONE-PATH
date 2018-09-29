@@ -164,8 +164,6 @@ namespace ONE_PATH
             SoftVerInfo = EnvironmentHelper.CheckLatestVersion();
             string LocalFileVersion = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
             string LocalProductVersion = Application.ProductVersion.ToString();
-
-
             Label_SoftVersion.Text = "本地版本:" + LocalProductVersion + "最新版本:" + SoftVerInfo.ProductVersion;
             if (LocalProductVersion != SoftVerInfo.ProductVersion)
             {
@@ -185,16 +183,17 @@ namespace ONE_PATH
             CheckVersion();
         }
 
+
         /// <summary>
-        /// 是否正常打开下载链接
+        /// 打开下载链接
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void linkLabel_DownUrl_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void linkLabel_DownUrl_Click(object sender, EventArgs e)
         {
             try
             {
-                VisitLink();
+                System.Diagnostics.Process.Start(SoftVerInfo.DownUrl);
             }
             catch (Exception exception)
             {
@@ -202,17 +201,10 @@ namespace ONE_PATH
             }
         }
 
-        /// <summary>
-        /// 打开下载链接
-        /// </summary>
-        private void VisitLink()
+
+        private void linkLabel_AboutMe_Click(object sender, EventArgs e)
         {
-            // Change the color of the link text by setting LinkVisited   
-            // to true.  
-            linkLabel_DownUrl.LinkVisited = true;
-            //Call the Process.Start method to open the default browser
-            ////with a URL:  
-            System.Diagnostics.Process.Start(SoftVerInfo.DownUrl);
+            System.Diagnostics.Process.Start("http://uno.moe");
         }
 
         #endregion
@@ -226,17 +218,5 @@ namespace ONE_PATH
         }
 
         #endregion
-
-        private void linkLabel_AboutMe_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            System.Diagnostics.Process.Start("http://uno.moe");
-        }
-
-        private void Label_SoftVersion_Click(object sender, EventArgs e)
-        {
-
-        }
-
- 
     }
 }
