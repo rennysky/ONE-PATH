@@ -46,19 +46,20 @@
             // 
             // MyPathBox
             // 
+            this.MyPathBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.MyPathBox.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.MyPathBox.Location = new System.Drawing.Point(121, 70);
+            this.MyPathBox.Location = new System.Drawing.Point(94, 6);
             this.MyPathBox.Name = "MyPathBox";
-            this.MyPathBox.Size = new System.Drawing.Size(255, 26);
+            this.MyPathBox.Size = new System.Drawing.Size(290, 19);
             this.MyPathBox.TabIndex = 3;
             // 
             // B_StartSetEnv
             // 
-            this.B_StartSetEnv.BackColor = System.Drawing.SystemColors.Highlight;
-            this.B_StartSetEnv.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.B_StartSetEnv.BackColor = System.Drawing.Color.LightGray;
+            this.B_StartSetEnv.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.B_StartSetEnv.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.B_StartSetEnv.ForeColor = System.Drawing.Color.White;
-            this.B_StartSetEnv.Location = new System.Drawing.Point(244, 107);
+            this.B_StartSetEnv.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.B_StartSetEnv.Location = new System.Drawing.Point(252, 43);
             this.B_StartSetEnv.Name = "B_StartSetEnv";
             this.B_StartSetEnv.Size = new System.Drawing.Size(62, 26);
             this.B_StartSetEnv.TabIndex = 6;
@@ -68,11 +69,11 @@
             // 
             // B_Exit
             // 
-            this.B_Exit.BackColor = System.Drawing.SystemColors.Highlight;
-            this.B_Exit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.B_Exit.BackColor = System.Drawing.Color.LightGray;
+            this.B_Exit.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.B_Exit.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.B_Exit.ForeColor = System.Drawing.Color.White;
-            this.B_Exit.Location = new System.Drawing.Point(312, 107);
+            this.B_Exit.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.B_Exit.Location = new System.Drawing.Point(320, 43);
             this.B_Exit.Name = "B_Exit";
             this.B_Exit.Size = new System.Drawing.Size(64, 26);
             this.B_Exit.TabIndex = 7;
@@ -84,7 +85,7 @@
             // 
             this.Label_Path.AutoSize = true;
             this.Label_Path.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Label_Path.Location = new System.Drawing.Point(47, 73);
+            this.Label_Path.Location = new System.Drawing.Point(20, 6);
             this.Label_Path.Name = "Label_Path";
             this.Label_Path.Size = new System.Drawing.Size(68, 20);
             this.Label_Path.TabIndex = 2;
@@ -101,11 +102,10 @@
             this.panel1.Controls.Add(this.Label_Path);
             this.panel1.Controls.Add(this.B_StartSetEnv);
             this.panel1.Controls.Add(this.B_Exit);
-            this.panel1.Location = new System.Drawing.Point(3, 2);
+            this.panel1.Location = new System.Drawing.Point(-1, 62);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(425, 217);
+            this.panel1.Size = new System.Drawing.Size(406, 136);
             this.panel1.TabIndex = 1;
-            this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             // 
             // linkLabel_AboutMe
             // 
@@ -113,7 +113,7 @@
             this.linkLabel_AboutMe.AutoSize = true;
             this.linkLabel_AboutMe.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.linkLabel_AboutMe.LinkColor = System.Drawing.Color.Black;
-            this.linkLabel_AboutMe.Location = new System.Drawing.Point(360, 192);
+            this.linkLabel_AboutMe.Location = new System.Drawing.Point(322, 109);
             this.linkLabel_AboutMe.Name = "linkLabel_AboutMe";
             this.linkLabel_AboutMe.Size = new System.Drawing.Size(62, 17);
             this.linkLabel_AboutMe.TabIndex = 11;
@@ -127,7 +127,7 @@
             this.linkLabel_DownUrl.AutoSize = true;
             this.linkLabel_DownUrl.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.linkLabel_DownUrl.LinkColor = System.Drawing.Color.Black;
-            this.linkLabel_DownUrl.Location = new System.Drawing.Point(241, 192);
+            this.linkLabel_DownUrl.Location = new System.Drawing.Point(209, 109);
             this.linkLabel_DownUrl.Name = "linkLabel_DownUrl";
             this.linkLabel_DownUrl.Size = new System.Drawing.Size(116, 17);
             this.linkLabel_DownUrl.TabIndex = 10;
@@ -139,17 +139,18 @@
             // 
             this.Label_SoftVersion.AutoSize = true;
             this.Label_SoftVersion.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Label_SoftVersion.Location = new System.Drawing.Point(3, 192);
+            this.Label_SoftVersion.Location = new System.Drawing.Point(21, 109);
             this.Label_SoftVersion.Name = "Label_SoftVersion";
             this.Label_SoftVersion.Size = new System.Drawing.Size(88, 17);
             this.Label_SoftVersion.TabIndex = 8;
             this.Label_SoftVersion.Text = "获取版本中……";
+            this.Label_SoftVersion.Click += new System.EventHandler(this.Label_SoftVersion_Click);
             // 
             // Label_SoftName
             // 
             this.Label_SoftName.AutoSize = true;
             this.Label_SoftName.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Label_SoftName.Location = new System.Drawing.Point(47, 109);
+            this.Label_SoftName.Location = new System.Drawing.Point(20, 45);
             this.Label_SoftName.Name = "Label_SoftName";
             this.Label_SoftName.Size = new System.Drawing.Size(68, 20);
             this.Label_SoftName.TabIndex = 4;
@@ -159,9 +160,9 @@
             // 
             this.EnvCombSelect.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.EnvCombSelect.FormattingEnabled = true;
-            this.EnvCombSelect.Location = new System.Drawing.Point(121, 107);
+            this.EnvCombSelect.Location = new System.Drawing.Point(94, 43);
             this.EnvCombSelect.Name = "EnvCombSelect";
-            this.EnvCombSelect.Size = new System.Drawing.Size(108, 28);
+            this.EnvCombSelect.Size = new System.Drawing.Size(151, 28);
             this.EnvCombSelect.TabIndex = 5;
             // 
             // timer1
@@ -175,9 +176,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGray;
-            this.ClientSize = new System.Drawing.Size(430, 220);
+            this.ClientSize = new System.Drawing.Size(405, 198);
             this.Controls.Add(this.panel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "MainPath";

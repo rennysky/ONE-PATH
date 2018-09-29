@@ -11,10 +11,12 @@ using System.Web.Script;
 using System.Windows.Forms;
 using ONE_PATH.Utility;
 using ONE_PATH.Utility.Model;
+using MaterialSkin;
+using MaterialSkin.Controls;
 
 namespace ONE_PATH
 {
-    public partial class MainPath : Form
+    public partial class MainPath : MaterialForm
     {
         public MainPath()
         {
@@ -148,22 +150,6 @@ namespace ONE_PATH
 
         #endregion
 
-        #region 无边框窗体移动
-
-        public const int WM_NCLBUTTONDOWN = 0xA1;
-        public const int HT_CAPTION = 0x2;
-
-        private void panel1_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                Win32API.ReleaseCapture();
-
-                Win32API.SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
-            }
-        }
-
-        #endregion
 
         #region 检查版本更新
 
@@ -243,6 +229,11 @@ namespace ONE_PATH
         private void linkLabel_AboutMe_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             System.Diagnostics.Process.Start("http://uno.moe");
+        }
+
+        private void Label_SoftVersion_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
