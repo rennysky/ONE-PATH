@@ -74,9 +74,9 @@
             // linkLabel_DownUrl
             // 
             this.linkLabel_DownUrl.FontWeight = MetroFramework.MetroLinkWeight.Regular;
-            this.linkLabel_DownUrl.Location = new System.Drawing.Point(234, 103);
+            this.linkLabel_DownUrl.Location = new System.Drawing.Point(214, 103);
             this.linkLabel_DownUrl.Name = "linkLabel_DownUrl";
-            this.linkLabel_DownUrl.Size = new System.Drawing.Size(80, 23);
+            this.linkLabel_DownUrl.Size = new System.Drawing.Size(103, 23);
             this.linkLabel_DownUrl.TabIndex = 2;
             this.linkLabel_DownUrl.Text = "点此下载最新版";
             this.linkLabel_DownUrl.UseSelectable = true;
