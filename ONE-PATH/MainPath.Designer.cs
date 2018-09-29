@@ -30,56 +30,19 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainPath));
-            this.MyPathBox = new System.Windows.Forms.TextBox();
-            this.B_StartSetEnv = new System.Windows.Forms.Button();
-            this.B_Exit = new System.Windows.Forms.Button();
             this.Label_Path = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.linkLabel_AboutMe = new System.Windows.Forms.LinkLabel();
             this.linkLabel_DownUrl = new System.Windows.Forms.LinkLabel();
             this.Label_SoftVersion = new System.Windows.Forms.Label();
             this.Label_SoftName = new System.Windows.Forms.Label();
-            this.EnvCombSelect = new System.Windows.Forms.ComboBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.B_StartSetEnv = new MetroFramework.Controls.MetroButton();
+            this.B_Exit = new MetroFramework.Controls.MetroButton();
+            this.EnvCombSelect = new MetroFramework.Controls.MetroComboBox();
+            this.MyPathBox = new MetroFramework.Controls.MetroTextBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // MyPathBox
-            // 
-            this.MyPathBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.MyPathBox.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.MyPathBox.Location = new System.Drawing.Point(94, 6);
-            this.MyPathBox.Name = "MyPathBox";
-            this.MyPathBox.Size = new System.Drawing.Size(290, 19);
-            this.MyPathBox.TabIndex = 3;
-            // 
-            // B_StartSetEnv
-            // 
-            this.B_StartSetEnv.BackColor = System.Drawing.Color.LightGray;
-            this.B_StartSetEnv.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.B_StartSetEnv.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.B_StartSetEnv.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.B_StartSetEnv.Location = new System.Drawing.Point(252, 43);
-            this.B_StartSetEnv.Name = "B_StartSetEnv";
-            this.B_StartSetEnv.Size = new System.Drawing.Size(62, 26);
-            this.B_StartSetEnv.TabIndex = 6;
-            this.B_StartSetEnv.Text = "开始";
-            this.B_StartSetEnv.UseVisualStyleBackColor = false;
-            this.B_StartSetEnv.Click += new System.EventHandler(this.B_StartSetEnv_Click);
-            // 
-            // B_Exit
-            // 
-            this.B_Exit.BackColor = System.Drawing.Color.LightGray;
-            this.B_Exit.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.B_Exit.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.B_Exit.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.B_Exit.Location = new System.Drawing.Point(320, 43);
-            this.B_Exit.Name = "B_Exit";
-            this.B_Exit.Size = new System.Drawing.Size(64, 26);
-            this.B_Exit.TabIndex = 7;
-            this.B_Exit.Text = "退出";
-            this.B_Exit.UseVisualStyleBackColor = false;
-            this.B_Exit.Click += new System.EventHandler(this.B_Exit_Click);
             // 
             // Label_Path
             // 
@@ -93,15 +56,15 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.MyPathBox);
+            this.panel1.Controls.Add(this.EnvCombSelect);
+            this.panel1.Controls.Add(this.B_Exit);
+            this.panel1.Controls.Add(this.B_StartSetEnv);
             this.panel1.Controls.Add(this.linkLabel_AboutMe);
             this.panel1.Controls.Add(this.linkLabel_DownUrl);
             this.panel1.Controls.Add(this.Label_SoftVersion);
             this.panel1.Controls.Add(this.Label_SoftName);
-            this.panel1.Controls.Add(this.EnvCombSelect);
-            this.panel1.Controls.Add(this.MyPathBox);
             this.panel1.Controls.Add(this.Label_Path);
-            this.panel1.Controls.Add(this.B_StartSetEnv);
-            this.panel1.Controls.Add(this.B_Exit);
             this.panel1.Location = new System.Drawing.Point(-1, 62);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(406, 136);
@@ -156,32 +119,83 @@
             this.Label_SoftName.TabIndex = 4;
             this.Label_SoftName.Text = "软件名称:";
             // 
-            // EnvCombSelect
-            // 
-            this.EnvCombSelect.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.EnvCombSelect.FormattingEnabled = true;
-            this.EnvCombSelect.Location = new System.Drawing.Point(94, 43);
-            this.EnvCombSelect.Name = "EnvCombSelect";
-            this.EnvCombSelect.Size = new System.Drawing.Size(151, 28);
-            this.EnvCombSelect.TabIndex = 5;
-            // 
             // timer1
             // 
             this.timer1.Enabled = true;
             this.timer1.Interval = 2000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // B_StartSetEnv
+            // 
+            this.B_StartSetEnv.FontWeight = MetroFramework.MetroButtonWeight.Regular;
+            this.B_StartSetEnv.Location = new System.Drawing.Point(251, 42);
+            this.B_StartSetEnv.Name = "B_StartSetEnv";
+            this.B_StartSetEnv.Size = new System.Drawing.Size(63, 27);
+            this.B_StartSetEnv.TabIndex = 6;
+            this.B_StartSetEnv.Text = "开始";
+            this.B_StartSetEnv.UseSelectable = true;
+            this.B_StartSetEnv.Click += new System.EventHandler(this.B_StartSetEnv_Click);
+            // 
+            // B_Exit
+            // 
+            this.B_Exit.FontWeight = MetroFramework.MetroButtonWeight.Regular;
+            this.B_Exit.Location = new System.Drawing.Point(325, 42);
+            this.B_Exit.Name = "B_Exit";
+            this.B_Exit.Size = new System.Drawing.Size(63, 27);
+            this.B_Exit.TabIndex = 12;
+            this.B_Exit.Text = "退出";
+            this.B_Exit.UseSelectable = true;
+            this.B_Exit.Click += new System.EventHandler(this.B_Exit_Click);
+            // 
+            // EnvCombSelect
+            // 
+            this.EnvCombSelect.FormattingEnabled = true;
+            this.EnvCombSelect.ItemHeight = 23;
+            this.EnvCombSelect.Location = new System.Drawing.Point(94, 40);
+            this.EnvCombSelect.Name = "EnvCombSelect";
+            this.EnvCombSelect.Size = new System.Drawing.Size(151, 29);
+            this.EnvCombSelect.TabIndex = 5;
+            this.EnvCombSelect.UseSelectable = true;
+            // 
+            // MyPathBox
+            // 
+            // 
+            // 
+            // 
+            this.MyPathBox.CustomButton.Image = null;
+            this.MyPathBox.CustomButton.Location = new System.Drawing.Point(268, 1);
+            this.MyPathBox.CustomButton.Name = "";
+            this.MyPathBox.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.MyPathBox.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.MyPathBox.CustomButton.TabIndex = 1;
+            this.MyPathBox.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.MyPathBox.CustomButton.UseSelectable = true;
+            this.MyPathBox.CustomButton.Visible = false;
+            this.MyPathBox.Lines = new string[0];
+            this.MyPathBox.Location = new System.Drawing.Point(94, 6);
+            this.MyPathBox.MaxLength = 32767;
+            this.MyPathBox.Name = "MyPathBox";
+            this.MyPathBox.PasswordChar = '\0';
+            this.MyPathBox.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.MyPathBox.SelectedText = "";
+            this.MyPathBox.SelectionLength = 0;
+            this.MyPathBox.SelectionStart = 0;
+            this.MyPathBox.ShortcutsEnabled = true;
+            this.MyPathBox.Size = new System.Drawing.Size(290, 23);
+            this.MyPathBox.TabIndex = 13;
+            this.MyPathBox.UseSelectable = true;
+            this.MyPathBox.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.MyPathBox.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
             // MainPath
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.LightGray;
             this.ClientSize = new System.Drawing.Size(405, 198);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "MainPath";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "OnePath 系统环境一键配置";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -190,18 +204,17 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox MyPathBox;
-        private System.Windows.Forms.Button B_StartSetEnv;
-        private System.Windows.Forms.Button B_Exit;
         private System.Windows.Forms.Label Label_Path;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.ComboBox EnvCombSelect;
         private System.Windows.Forms.Label Label_SoftName;
         private System.Windows.Forms.Label Label_SoftVersion;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.LinkLabel linkLabel_DownUrl;
         private System.Windows.Forms.LinkLabel linkLabel_AboutMe;
+        private MetroFramework.Controls.MetroButton B_StartSetEnv;
+        private MetroFramework.Controls.MetroTextBox MyPathBox;
+        private MetroFramework.Controls.MetroComboBox EnvCombSelect;
+        private MetroFramework.Controls.MetroButton B_Exit;
     }
 }
 
