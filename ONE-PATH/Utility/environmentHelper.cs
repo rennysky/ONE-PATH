@@ -4,10 +4,11 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Net.Security;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Windows.Forms;
 using ONE_PATH.Utility.Model;
-
 namespace ONE_PATH.Utility
 {
     class EnvironmentHelper
@@ -78,6 +79,10 @@ namespace ONE_PATH.Utility
         public static SoftVerInfoModel CheckLatestVersion()
         {
             SoftVerInfoModel softVerInfo = new SoftVerInfoModel();
+            //处理HttpWebRequest访问https有安全证书的问题（ 请求被中止: 未能创建 SSL/TLS 安全通道。）
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Ssl3;
+            ServicePointManager.ServerCertificateValidationCallback = new System.Net.Security.RemoteCertificateValidationCallback(CheckValidationResult);
+
             WebRequest wr = WebRequest.Create("https://rennysky.github.io/ONE-PATH/web/update.json");
             Stream s = wr.GetResponse().GetResponseStream();
             StreamReader sr = new StreamReader(s, Encoding.Default);
@@ -96,6 +101,12 @@ namespace ONE_PATH.Utility
             }
 
             return softVerInfo;
+        }
+
+
+        public static bool CheckValidationResult(object sender, X509Certificate certificate, X509Chain chain, SslPolicyErrors errors)
+        {
+            return true;
         }
 
         #endregion
