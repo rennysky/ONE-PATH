@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Windows.Forms;
 using ONE_PATH.Utility.Model;
@@ -15,7 +17,15 @@ namespace ONE_PATH.Utility
         public static EnvironmentModel GetEnvironmentPath(string SoftName)
         {
             EnvironmentModel model = new EnvironmentModel();
-            JsonObj result = WebAPI.Get("http://api.ieasn.com/?service=App.GetPath." + SoftName);
+            SoftVerInfoModel softVerInfo = new SoftVerInfoModel();
+            WebRequest wr = WebRequest.Create("http://api.ieasn.com/?service=App.GetPath." + SoftName);
+            Stream s = wr.GetResponse().GetResponseStream();
+            StreamReader sr = new StreamReader(s, Encoding.Default);
+            string all = sr.ReadToEnd(); //读取网站的数据
+            sr.Close();
+            s.Close();
+            JsonObj result = JsonObj.Parse(all);
+ 
             if (result.Get("ret") == "200")
             {
                 Dictionary<string, object> list = result.GetList();
@@ -38,7 +48,14 @@ namespace ONE_PATH.Utility
 
         public static void GetEnvironmentPathList()
         {
-            JsonObj result = WebAPI.Get("http://api.ieasn.com/?service=App.GetSoftEnv.GetPathList");
+            WebRequest wr = WebRequest.Create("http://api.ieasn.com/?service=App.GetSoftEnv.GetPathList");
+            Stream s = wr.GetResponse().GetResponseStream();
+            StreamReader sr = new StreamReader(s, Encoding.Default);
+            string all = sr.ReadToEnd(); //读取网站的数据
+            sr.Close();
+            s.Close();
+            JsonObj result = JsonObj.Parse(all);
+            
             if (result.Get("ret") == "200")
             {
                 Dictionary<string, object> dic = result.GetList();
@@ -61,7 +78,13 @@ namespace ONE_PATH.Utility
         public static SoftVerInfoModel CheckLatestVersion()
         {
             SoftVerInfoModel softVerInfo = new SoftVerInfoModel();
-            JsonObj result = WebAPI.Get("http://api.ieasn.com/?service=App.GetSoftEnv.GetSoftVer");
+            WebRequest wr = WebRequest.Create("https://rennysky.github.io/ONE-PATH/web/update.json");
+            Stream s = wr.GetResponse().GetResponseStream();
+            StreamReader sr = new StreamReader(s, Encoding.Default);
+            string all = sr.ReadToEnd(); //读取网站的数据
+            sr.Close();
+            s.Close();
+            JsonObj result=JsonObj.Parse(all);
             if (result.Get("ret") == "200")
             {
                 Dictionary<string, object> list = result.GetList();
