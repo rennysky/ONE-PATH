@@ -85,7 +85,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="API\Win32Api.cs" />
-    <Compile Include="EnvironmentHelper.cs" />
+    <Compile Include="Utility\EnvironmentHelper.cs" />
     <Compile Include="MainPath.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -97,7 +97,9 @@
     <Compile Include="Utility\Enum.cs" />
     <Compile Include="Utility\JsonObj.cs" />
     <Compile Include="Utility\Model\EnvironmentModel.cs" />
+    <Compile Include="Utility\Model\SoftListModel.cs" />
     <Compile Include="Utility\RueiConvert.cs" />
+    <Compile Include="Utility\SetEnvironmentHelper.cs" />
     <EmbeddedResource Include="MainPath.resx">
       <DependentUpon>MainPath.cs</DependentUpon>
     </EmbeddedResource>
