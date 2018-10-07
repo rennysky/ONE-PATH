@@ -101,8 +101,7 @@ namespace ONE_PATH
         {
             try
             {
-                EnvironmentInfo =
-                    EnvironmentHelper.GetEnvironmentPath(EnvCombSelect.SelectedValue.ToString()); //选用combo的选中值
+                //EnvironmentInfo = EnvironmentHelper.GetEnvironmentPath(EnvCombSelect.SelectedValue.ToString()); //选用combo的选中值
 
                 SetEnvironment("PATH", EnvironmentInfo.SystemPath);
                 //SetEnvironment("PATH", EnvironmentInfo.UserPath);
@@ -161,7 +160,7 @@ namespace ONE_PATH
         /// </summary>
         public void CheckVersion()
         {
-            SoftVerInfo = EnvironmentHelper.CheckLatestVersion();
+           // SoftVerInfo = EnvironmentHelper.CheckLatestVersion();
             string LocalFileVersion = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
             string LocalProductVersion = Application.ProductVersion.ToString();
             Label_SoftVersion.Text = "本地版本:" + LocalProductVersion + "最新版本:" + SoftVerInfo.ProductVersion;
@@ -180,7 +179,7 @@ namespace ONE_PATH
         private void timer1_Tick(object sender, EventArgs e)
         {
             timer1.Enabled = false;
-            CheckVersion();
+           // CheckVersion();
         }
 
 
@@ -213,8 +212,10 @@ namespace ONE_PATH
 
         private void RegisterEvents()
         {
-            EnvironmentHelper.GetEnvironmentPathList();
-            EnvCombSelect.DataSource = EnvironmentHelper.SoftList;
+            //EnvironmentHelper.GetEnvironmentPathList();
+            //获取软件列表
+           // EnvCombSelect.DataSource = EnvironmentHelper.SoftList;
+           //根据接口增加combom的内容
         }
 
         #endregion

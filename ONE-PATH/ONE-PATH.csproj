@@ -8,7 +8,7 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>ONE_PATH</RootNamespace>
     <AssemblyName>ONEPATH</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
@@ -70,12 +70,6 @@
     <Reference Include="MetroFramework.Fonts, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
       <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Fonts.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="starksoft.aspen, Version=1.1.5.0, Culture=neutral, PublicKeyToken=56b8923a24d03eb3, processorArchitecture=MSIL">
-      <HintPath>..\packages\starksoft.aspen.1.1.6\lib\net45\starksoft.aspen.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
@@ -91,6 +85,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="API\Win32Api.cs" />
+    <Compile Include="EnvironmentHelper.cs" />
     <Compile Include="MainPath.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,12 +95,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utility\Enum.cs" />
-    <Compile Include="Utility\EnvironmentHelper.cs" />
-    <Compile Include="Utility\HttpProc.cs" />
     <Compile Include="Utility\JsonObj.cs" />
     <Compile Include="Utility\Model\EnvironmentModel.cs" />
     <Compile Include="Utility\RueiConvert.cs" />
-    <Compile Include="Utility\WebAPI.cs" />
     <EmbeddedResource Include="MainPath.resx">
       <DependentUpon>MainPath.cs</DependentUpon>
     </EmbeddedResource>
@@ -119,9 +111,13 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="app.config" />
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
-    <None Include="Properties\app.manifest" />
+    <None Include="Properties\app.manifest">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
