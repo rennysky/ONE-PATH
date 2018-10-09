@@ -17,7 +17,7 @@ using MetroFramework.Forms;
 
 namespace ONE_PATH
 {
-    public partial class MainPath : MetroForm
+    public partial class MainPath :MetroForm
     {
         public MainPath()
         {
