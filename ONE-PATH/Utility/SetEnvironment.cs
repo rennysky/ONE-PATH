@@ -30,6 +30,13 @@ namespace ONE_PATH.Utility
             StartCMD("npm config set cache  " + SoftPath + "\node_cache");
         }
 
+        public void SetJava(string SoftPath)
+        {
+            StartEnvironment("JAVA_HOME", SoftPath, AuthType.Machine.ToString());
+            StartEnvironment("CLASSPATH", @".;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar;",AuthType.Machine.ToString());
+            StartEnvironment("Path", @"%JAVA_HOME%\bin;%JAVA_HOME%\jre\bin;", AuthType.Machine.ToString());
+        }
+
 
         #region 写入系统变量
 

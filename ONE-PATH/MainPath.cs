@@ -42,6 +42,9 @@ namespace ONE_PATH
                 case "Node":
                     set.SetNode(MyPathBox.Text);
                     break;
+                case "Java":
+                    set.SetJava(MyPathBox.Text);
+                    break;
                 default: MessageBox.Show("234234");
                     break;
             }
