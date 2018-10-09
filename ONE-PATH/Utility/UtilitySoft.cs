@@ -13,11 +13,13 @@ namespace ONE_PATH.Utility
 
         public void Node(string file)
         {
-            System.IO.DirectoryInfo di = new System.IO.DirectoryInfo(file + "\node_global");
+            System.IO.DirectoryInfo di = new System.IO.DirectoryInfo(file + "node_global");
 
             di.Create();
-            System.IO.DirectoryInfo di2 = new System.IO.DirectoryInfo(file + "\node_cache");
+            System.IO.DirectoryInfo di2 = new System.IO.DirectoryInfo(file + "node_cache");
             di2.Create();
+
+
         }
     }
 }
