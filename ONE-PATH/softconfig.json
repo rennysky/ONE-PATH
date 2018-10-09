@@ -10,14 +10,14 @@
 
   },
   "Node": {
-    "SystemPath": "soft_path",
-    "SystemPathTag": "\node_global\node_modules",
-    "UserPath": "",
-	"UserPathTag":"",
+    "SystemPath": "",
+    "SystemPathTag": "",
+    "UserPath": "soft_path",
+	"UserPathTag":"\node_global",
     "OtherKey": "NODE_PATH",
     "OtherValue": "soft_path",
-	"OtherValueTag": "",
+	"OtherValueTag": "\node_global\node_modules",
     "OtherIsMachine": "1",
-    "IsSpecial": "1"
+    "IsSpecial": "Node"
   }
 }

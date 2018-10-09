@@ -17,7 +17,7 @@ using MetroFramework.Forms;
 
 namespace ONE_PATH
 {
-    public partial class MainPath :MetroForm
+    public partial class MainPath : MetroForm
     {
         public MainPath()
         {
@@ -101,13 +101,32 @@ namespace ONE_PATH
         {
             try
             {
-                
                 EnvironmentInfo =
                     EnvironmentHelper.GetEnvironmentPath(EnvCombSelect.SelectedValue.ToString()); //选用combo的选中值
+                if (EnvironmentInfo.SystemPath != "")
+                {
+                    SetEnvironment("PATH", EnvironmentInfo.SystemPath + EnvironmentInfo.SystemPathTag);
+                }
+                else if (EnvironmentInfo.UserPath != "")
+                {
+                    SetEnvironment("PATH", EnvironmentInfo.UserPath + EnvironmentInfo.UserPathTag);
+                }
+                 if (EnvironmentInfo.OtherKey != "")
+                {
+                    SetEnvironment(EnvironmentInfo.OtherKey,
+                        EnvironmentInfo.OtherValue + EnvironmentInfo.OtherValueTag);
+                }
 
-                SetEnvironment("PATH", EnvironmentInfo.SystemPath+EnvironmentInfo.SystemPathTag);
-                //SetEnvironment("PATH", EnvironmentInfo.UserPath);
-                SetEnvironment(EnvironmentInfo.OtherKey, EnvironmentInfo.OtherValue);
+                if (EnvironmentInfo.IsSpecial != "")
+                {
+                    UtilitySoft utilitySoft=new UtilitySoft();
+                    switch (EnvironmentInfo.IsSpecial)
+                    {
+                        case "Node":
+                            utilitySoft.Node(MyPathBox.Text);
+                            break;
+                    }
+                }
             }
             catch (Exception exception)
             {
@@ -220,7 +239,6 @@ namespace ONE_PATH
             try
             {
                 EnvironmentHelper.GetEnvironmentPathList();
-
             }
             catch (Exception e)
             {
@@ -228,7 +246,7 @@ namespace ONE_PATH
                 MyPathBox.ReadOnly = true;
                 B_StartSetEnv.Enabled = false;
             }
-            
+
             EnvCombSelect.DataSource = EnvironmentHelper.SoftList;
         }
 
