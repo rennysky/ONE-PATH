@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainPath));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.Label_SoftVersion = new MetroFramework.Controls.MetroLabel();
             this.linkLabel_AboutMe = new MetroFramework.Controls.MetroLink();
             this.linkLabel_DownUrl = new MetroFramework.Controls.MetroLink();
             this.Label_SoftName = new MetroFramework.Controls.MetroLabel();
@@ -41,6 +40,7 @@
             this.B_Exit = new MetroFramework.Controls.MetroButton();
             this.B_StartSetEnv = new MetroFramework.Controls.MetroButton();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.Label_SoftVersion = new MetroFramework.Controls.MetroLabel();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -59,15 +59,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(406, 136);
             this.panel1.TabIndex = 1;
-            // 
-            // Label_SoftVersion
-            // 
-            this.Label_SoftVersion.AutoSize = true;
-            this.Label_SoftVersion.Location = new System.Drawing.Point(20, 103);
-            this.Label_SoftVersion.Name = "Label_SoftVersion";
-            this.Label_SoftVersion.Size = new System.Drawing.Size(97, 19);
-            this.Label_SoftVersion.TabIndex = 2;
-            this.Label_SoftVersion.Text = "检查更新中……";
             // 
             // linkLabel_AboutMe
             // 
@@ -143,10 +134,6 @@
             // 
             this.EnvCombSelect.FormattingEnabled = true;
             this.EnvCombSelect.ItemHeight = 23;
-            this.EnvCombSelect.Items.AddRange(new object[] {
-            "Cmder",
-            "Java",
-            "Node"});
             this.EnvCombSelect.Location = new System.Drawing.Point(94, 40);
             this.EnvCombSelect.Name = "EnvCombSelect";
             this.EnvCombSelect.Size = new System.Drawing.Size(151, 29);
@@ -180,6 +167,15 @@
             this.timer1.Enabled = true;
             this.timer1.Interval = 2000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // Label_SoftVersion
+            // 
+            this.Label_SoftVersion.AutoSize = true;
+            this.Label_SoftVersion.Location = new System.Drawing.Point(20, 103);
+            this.Label_SoftVersion.Name = "Label_SoftVersion";
+            this.Label_SoftVersion.Size = new System.Drawing.Size(97, 19);
+            this.Label_SoftVersion.TabIndex = 2;
+            this.Label_SoftVersion.Text = "检查更新中……";
             // 
             // MainPath
             // 
