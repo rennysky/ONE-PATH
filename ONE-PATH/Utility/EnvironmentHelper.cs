@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
@@ -15,43 +16,51 @@ namespace ONE_PATH.Utility
         public static EnvironmentModel GetEnvironmentPath(string SoftName)
         {
             EnvironmentModel model = new EnvironmentModel();
-            JsonObj result = WebAPI.Get("http://api.ieasn.com/?service=App.GetPath." + SoftName);
-            if (result.Get("ret") == "200")
-            {
-                Dictionary<string, object> list = result.GetList();
-                Dictionary<string, object> Data = (Dictionary<string, object>) list["data"];
-                model.SystemPath = Data["SystemPath"].ToString();
-                model.UserPath = Data["UserPath"].ToString();
-                model.OtherKey = Data["OtherKey"].ToString();
-                model.OtherValue = Data["OtherValue"].ToString();
-                model.IsMachine = Data["IsMachine"].ToString();
-            }
+            //JsonObj result = WebAPI.Get("http://api.ieasn.com/?service=App.GetPath." + SoftName);
+            // if (result.Get("ret") == "200")
+            // {
+            //IO读取
+            string JsonStr = GetMyJson();
+            JsonObj result = JsonObj.Parse(JsonStr);
+            Dictionary<string, object> dic = result.GetList();
+            Dictionary<string, object> Data = (Dictionary<string, object>) dic[SoftName];
+            model.SystemPath = Data["SystemPath"].ToString();
+            model.UserPath = Data["UserPath"].ToString();
+            model.OtherKey = Data["OtherKey"].ToString();
+            model.OtherValue = Data["OtherValue"].ToString();
+            model.IsMachine = Data["IsMachine"].ToString();
+            // }
 
             return model;
         }
 
         #endregion
 
-        #region 获取云端所有软件列表
+        #region 获取所有软件列表
 
         public static ArrayList SoftList = new ArrayList();
 
         public static void GetEnvironmentPathList()
         {
-            JsonObj result = WebAPI.Get("http://api.ieasn.com/?service=App.GetSoftEnv.GetPathList");
-            if (result.Get("ret") == "200")
-            {
-                Dictionary<string, object> dic = result.GetList();
-                Dictionary<string, object> data = dic["data"] as Dictionary<string, object>;
+            //IO读取
+            string JsonStr = GetMyJson();
+            JsonObj result = JsonObj.Parse(JsonStr);
+            Dictionary<string, object> dic = result.GetList();
+            //JsonObj result = WebAPI.Get("http://api.ieasn.com/?service=App.GetSoftEnv.GetPathList");
+            //if (result.Get("ret") == "200")
+            //{
 
-                if (data.Count > 0)
+            //    Dictionary<string, object> data = dic["data"] as Dictionary<string, object>;
+
+            if (dic.Count > 0)
+            {
+                foreach (var KeyList in dic.Keys)
                 {
-                    foreach (var KeyList in data.Keys)
-                    {
-                        SoftList.Add(KeyList);
-                    }
+                    SoftList.Add(KeyList);
                 }
             }
+
+            //}
         }
 
         #endregion
@@ -73,6 +82,24 @@ namespace ONE_PATH.Utility
             }
 
             return softVerInfo;
+        }
+
+        #endregion
+
+        #region json读写
+
+        private static string GetMyJson()
+        {
+            //创建一个绝对路径
+            string SavePath = AppDomain.CurrentDomain.BaseDirectory;
+            using (FileStream fsRead = new FileStream(string.Format("{0}\\app.json", SavePath), FileMode.Open))
+            {
+                //读取加转换
+                int fsLen = (int) fsRead.Length;
+                byte[] heByte = new byte[fsLen];
+                int r = fsRead.Read(heByte, 0, heByte.Length);
+                return System.Text.Encoding.UTF8.GetString(heByte);
+            }
         }
 
         #endregion
