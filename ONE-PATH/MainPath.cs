@@ -37,7 +37,12 @@ namespace ONE_PATH
             switch (EnvCombSelect.Text)
             {
                 case "Cmder":
+                    set.SetCmder(MyPathBox.Text);
+                    break;
+                case "Node":
                     set.SetNode(MyPathBox.Text);
+                    break;
+                default: MessageBox.Show("234234");
                     break;
             }
             
