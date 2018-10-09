@@ -23,7 +23,7 @@ namespace ONE_PATH
         {
             InitializeComponent();
 
-            RegisterEvents();
+            RegisterEvents(); 
         }
 
         #region 写入环境变量
