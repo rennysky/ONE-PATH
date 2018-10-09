@@ -1,0 +1,18 @@
+[
+  {
+  "SoftName":"Cmder",
+"SystemPath": "soft_path",
+"UserPath": "",
+"OtherKey": "CMDER_HOME",
+"OtherValue": "soft_path",
+"IsMachine": "1"
+},
+{
+"SoftName":"Node",
+"SystemPath": "soft_path",
+"UserPath": "",
+"OtherKey": "CMDER_HOME",
+"OtherValue": "soft_path",
+"IsMachine": "1"
+}
+]

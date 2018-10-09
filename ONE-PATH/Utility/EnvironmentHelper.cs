@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Net;
@@ -6,39 +7,62 @@ using System.Net.Security;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using ONE_PATH.Utility.Model;
+using Newtonsoft.Json;
+using ONE_PATH.Utility;
 
 namespace ONE_PATH
-{ 
+{
     public class EnvironmentHelper
     {
         #region 获取相应环境变量配置
 
-       // public static EnvironmentModel GetEnvironmentPath(string SoftName)
-       // {
-           // EnvironmentModel model = new EnvironmentModel();
-           // SoftVerInfoModel softVerInfo = new SoftVerInfoModel();
-           // WebRequest wr = WebRequest.Create("http://api.ieasn.com/?service=App.GetPath." + SoftName);
-           // Stream s = wr.GetResponse().GetResponseStream();
-           // StreamReader sr = new StreamReader(s, Encoding.Default);
-           // string all = sr.ReadToEnd(); //读取网站的数据
-           // sr.Close();
-           // s.Close();
-           //// JsonObj result = JsonObj.Parse(all);
+        #region 抛弃
 
-           // if (result.Get("ret") == "200")
-           // {
-           //     Dictionary<string, object> list = result.GetList();
-           //     Dictionary<string, object> Data = (Dictionary<string, object>)list["data"];
-           //     model.SystemPath = Data["SystemPath"].ToString();
-           //     model.UserPath = Data["UserPath"].ToString();
-           //     model.OtherKey = Data["OtherKey"].ToString();
-           //     model.OtherValue = Data["OtherValue"].ToString();
-           //     model.IsMachine = Data["IsMachine"].ToString();
-           // }
 
-           // return model;
-       // }
 
+
+        // public static EnvironmentModel GetEnvironmentPath(string SoftName)
+        // {
+        // EnvironmentModel model = new EnvironmentModel();
+        // SoftVerInfoModel softVerInfo = new SoftVerInfoModel();
+        // WebRequest wr = WebRequest.Create("http://api.ieasn.com/?service=App.GetPath." + SoftName);
+        // Stream s = wr.GetResponse().GetResponseStream();
+        // StreamReader sr = new StreamReader(s, Encoding.Default);
+        // string all = sr.ReadToEnd(); //读取网站的数据
+        // sr.Close();
+        // s.Close();
+        //// JsonObj result = JsonObj.Parse(all);
+
+        // if (result.Get("ret") == "200")
+        // {
+        //     Dictionary<string, object> list = result.GetList();
+        //     Dictionary<string, object> Data = (Dictionary<string, object>)list["data"];
+        //     model.SystemPath = Data["SystemPath"].ToString();
+        //     model.UserPath = Data["UserPath"].ToString();
+        //     model.OtherKey = Data["OtherKey"].ToString();
+        //     model.OtherValue = Data["OtherValue"].ToString();
+        //     model.IsMachine = Data["IsMachine"].ToString();
+        // }
+
+        // return model;
+        // }
+        #endregion
+
+        public static EnvironmentModel GetEnvironmentPath(string SoftName)
+        {
+            //IO读取
+            string JsonStr = GetMyJson();
+            JsonObj result = JsonObj.Parse(JsonStr);
+            EnvironmentModel model = new EnvironmentModel();
+            Dictionary<string, object> list = result.GetList();
+            Dictionary<string, object> Data = (Dictionary<string, object>)list[SoftName];
+            model.SystemPath = Data["SystemPath"].ToString();
+            model.UserPath = Data["UserPath"].ToString();
+            model.OtherKey = Data["OtherKey"].ToString();
+            model.OtherValue = Data["OtherValue"].ToString();
+            model.IsMachine = Data["IsMachine"].ToString();
+            return model;
+        }
         #endregion
 
         #region 获取云端所有软件列表
@@ -74,32 +98,62 @@ namespace ONE_PATH
 
         #region 检查软件版本更新
 
-       // public static SoftVerInfoModel CheckLatestVersion()
-       // {
-           // SoftVerInfoModel softVerInfo = new SoftVerInfoModel();
-           // //处理HttpWebRequest访问https有安全证书的问题（ 请求被中止: 未能创建 SSL/TLS 安全通道。）
-           // ServicePointManager.SecurityProtocol = SecurityProtocolType.Ssl3;
-           // ServicePointManager.ServerCertificateValidationCallback = new System.Net.Security.RemoteCertificateValidationCallback(CheckValidationResult);
+        // public static SoftVerInfoModel CheckLatestVersion()
+        // {
+        // SoftVerInfoModel softVerInfo = new SoftVerInfoModel();
+        // //处理HttpWebRequest访问https有安全证书的问题（ 请求被中止: 未能创建 SSL/TLS 安全通道。）
+        // ServicePointManager.SecurityProtocol = SecurityProtocolType.Ssl3;
+        // ServicePointManager.ServerCertificateValidationCallback = new System.Net.Security.RemoteCertificateValidationCallback(CheckValidationResult);
 
-           // WebRequest wr = WebRequest.Create("https://rennysky.github.io/ONE-PATH/web/update.json");
-           // Stream s = wr.GetResponse().GetResponseStream();
-           // StreamReader sr = new StreamReader(s, Encoding.Default);
-           // string all = sr.ReadToEnd(); //读取网站的数据
-           // sr.Close();
-           // s.Close();
-           //// JsonObj result = JsonObj.Parse(all);
-           // if (result.Get("ret") == "200")
-           // {
-           //     Dictionary<string, object> list = result.GetList();
-           //     Dictionary<string, object> Data = (Dictionary<string, object>)list["data"];
-           //     softVerInfo.DownUrl = Data["DownUrl"].ToString();
-           //     softVerInfo.IsNow = Data["IsNow"].ToString();
-           //     softVerInfo.ProductVersion = Data["ProductVersion"].ToString();
-           //     softVerInfo.FileVersion = Data["FileVersion"].ToString();
-           // }
+        // WebRequest wr = WebRequest.Create("https://rennysky.github.io/ONE-PATH/web/update.json");
+        // Stream s = wr.GetResponse().GetResponseStream();
+        // StreamReader sr = new StreamReader(s, Encoding.Default);
+        // string all = sr.ReadToEnd(); //读取网站的数据
+        // sr.Close();
+        // s.Close();
+        //// JsonObj result = JsonObj.Parse(all);
+        // if (result.Get("ret") == "200")
+        // {
+        //     Dictionary<string, object> list = result.GetList();
+        //     Dictionary<string, object> Data = (Dictionary<string, object>)list["data"];
+        //     softVerInfo.DownUrl = Data["DownUrl"].ToString();
+        //     softVerInfo.IsNow = Data["IsNow"].ToString();
+        //     softVerInfo.ProductVersion = Data["ProductVersion"].ToString();
+        //     softVerInfo.FileVersion = Data["FileVersion"].ToString();
+        // }
 
-           // return softVerInfo;
-       // }
+        // return softVerInfo;
+        // }
+
+        #endregion
+
+        #region 获取本地所需配置的软件内容
+
+
+        #endregion
+
+
+        #region IO读写
+
+        /// <summary>
+        /// IO读取本地json
+        /// </summary>
+        /// <param name="SavePath"></param>
+        /// <returns></returns>
+        private static string GetMyJson()
+        {
+            //创建一个绝对路径
+            string SavePath = AppDomain.CurrentDomain.BaseDirectory;
+            using (FileStream fsRead = new FileStream(string.Format("{0}\\app.json", SavePath), FileMode.Open))
+            {
+                //读取加转换
+                int fsLen = (int) fsRead.Length;
+                byte[] heByte = new byte[fsLen];
+                int r = fsRead.Read(heByte, 0, heByte.Length);
+                return System.Text.Encoding.UTF8.GetString(heByte);
+            }
+        }
+
         #endregion
     }
 }
