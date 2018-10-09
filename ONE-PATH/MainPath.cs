@@ -110,7 +110,10 @@ namespace ONE_PATH
             }
             catch (Exception exception)
             {
-                MessageBox.Show(exception.Message);
+                if (exception.Message.Contains("未将对象"))
+                {
+                    MessageBox.Show("配置文件读取错误！\r\n 请检查 softconfig.json是否正常！");
+                }
             }
             finally
             {
@@ -213,7 +216,18 @@ namespace ONE_PATH
 
         private void RegisterEvents()
         {
-            EnvironmentHelper.GetEnvironmentPathList();
+            try
+            {
+                EnvironmentHelper.GetEnvironmentPathList();
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("配置文件读取失败，请检查softconfig.json是否正常！");
+                MyPathBox.ReadOnly = true;
+                B_StartSetEnv.Enabled = false;
+            }
+            
             EnvCombSelect.DataSource = EnvironmentHelper.SoftList;
         }
 

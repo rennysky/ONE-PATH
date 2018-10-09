@@ -92,7 +92,7 @@ namespace ONE_PATH.Utility
         {
             //创建一个绝对路径
             string SavePath = AppDomain.CurrentDomain.BaseDirectory;
-            using (FileStream fsRead = new FileStream(string.Format("{0}\\app.json", SavePath), FileMode.Open))
+            using (FileStream fsRead = new FileStream(string.Format("{0}\\softconfig.json", SavePath), FileMode.Open))
             {
                 //读取加转换
                 int fsLen = (int) fsRead.Length;
