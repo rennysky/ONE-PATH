@@ -25,10 +25,15 @@ namespace ONE_PATH.Utility
             Dictionary<string, object> dic = result.GetList();
             Dictionary<string, object> Data = (Dictionary<string, object>) dic[SoftName];
             model.SystemPath = Data["SystemPath"].ToString();
+            model.SystemPathTag = Data["SystemPathTag"].ToString();
+            model.UserPathTag = Data["UserPathTag"].ToString();
             model.UserPath = Data["UserPath"].ToString();
             model.OtherKey = Data["OtherKey"].ToString();
+            model.OtherValueTag = Data["OtherValueTag"].ToString();
             model.OtherValue = Data["OtherValue"].ToString();
-            model.IsMachine = Data["IsMachine"].ToString();
+            model.OtherIsMachine = Data["OtherIsMachine"].ToString();
+
+            model.IsSpecial = Data["IsSpecial"].ToString();
             // }
 
             return model;

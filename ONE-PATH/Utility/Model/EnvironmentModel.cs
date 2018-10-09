@@ -18,9 +18,19 @@ namespace ONE_PATH.Utility.Model
         public string SystemPath;
 
         /// <summary>
+        /// 系统目录追加
+        /// </summary>
+        public string SystemPathTag;
+
+        /// <summary>
         /// 用户文件目录
         /// </summary>
         public string UserPath;
+
+        /// <summary>
+        /// 用户目录追加
+        /// </summary>
+        public string UserPathTag;
 
         /// <summary>
         /// 其他环境变量
@@ -33,9 +43,19 @@ namespace ONE_PATH.Utility.Model
         public string OtherValue;
 
         /// <summary>
+        /// 其他追加
+        /// </summary>
+        public string OtherValueTag;
+
+        /// <summary>
         /// 其他环境变量是否为系统
         /// </summary>
-        public string IsMachine;
+        public string OtherIsMachine;
+
+        /// <summary>
+        /// 其他环境变量是特殊处理
+        /// </summary>
+        public string IsSpecial;
     }
 
     #endregion

@@ -101,10 +101,11 @@ namespace ONE_PATH
         {
             try
             {
+                
                 EnvironmentInfo =
                     EnvironmentHelper.GetEnvironmentPath(EnvCombSelect.SelectedValue.ToString()); //选用combo的选中值
 
-                SetEnvironment("PATH", EnvironmentInfo.SystemPath);
+                SetEnvironment("PATH", EnvironmentInfo.SystemPath+EnvironmentInfo.SystemPathTag);
                 //SetEnvironment("PATH", EnvironmentInfo.UserPath);
                 SetEnvironment(EnvironmentInfo.OtherKey, EnvironmentInfo.OtherValue);
             }
