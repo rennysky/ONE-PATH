@@ -8,19 +8,26 @@ namespace ONE_PATH.Utility
     /// <summary>
     /// 代理类型
     /// </summary>
-    public enum ProxyType
+    public enum SoftList
     {
         /// <summary>
-        /// 无代理
+        /// 无 操作
         /// </summary>
-        NONE = 0,
+        None = 0,
+
         /// <summary>
-        /// HTTP代理
+        /// Cmder环境变量
         /// </summary>
-        HTTP = 1,
+        Cmder = 1,
+
         /// <summary>
-        /// SOCKS5代理
+        /// java-jdk-jre环境变量
         /// </summary>
-        SOCKS5 = 2
+        Java = 2,
+
+        /// <summary>
+        /// Node环境变量
+        /// </summary>
+        Node = 3
     }
 }

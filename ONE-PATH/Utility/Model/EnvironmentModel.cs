@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+﻿
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +11,6 @@ namespace ONE_PATH.Utility.Model
 
     public class EnvironmentModel
     {
-        [JsonIgnore]
         /// <summary>
         /// 系统文件目录
         /// </summary>
@@ -44,7 +43,6 @@ namespace ONE_PATH.Utility.Model
 
     public class SoftInfo
     {
-        [JsonIgnore]
         /// <summary>
         /// 产品名称
         /// </summary>
